@@ -23,3 +23,11 @@ All nine groups passed twice in fresh processes in the recorded Windows run. Rep
 ## Licenses
 
 The manuscript states CC BY 4.0. Bundled code retains its [MIT notice](experiments/paper_gol_examples/offline_replay/LICENSE) and original source notices. Third-party dependencies retain their respective licenses. Public release does not change those rights.
+
+## Evidence supplement
+
+The separately approved [199-file evidence supplement](evidence/paper_evidence_supplement_v2.zip) adds the original and matched source-task reader records, synthetic and control-interpreter records, native caller-search results, and all three fixed-schedule cost passes. Its [SHA-256](evidence/paper_evidence_supplement_v2.sha256) is provided beside the archive.
+
+Extract it into a new directory and run `python verify.py` there (Python 3.10 or newer; no dependencies). The verifier checks file hashes and recomputes counts, trace comparisons and paired costs from saved records. It does not call a model, execute GOL or remeasure speed; use the runtime command above for executable replay.
+
+The archive is the exact reviewed snapshot, so its internal README retains the preparation-time release status. Publication was authorized on 8 November 2026. The later twenty-reader target-task study is not in this supplement. The archive includes its dataset attribution and Apache 2.0 notice; inherited source licenses are preserved.
