@@ -205,15 +205,15 @@ This diagnostic tests whether a fixed program's correctness depends on the execu
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{cc}
 \fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Program construction}\\Two-task reader pilot\\\small ARCGraph/GOL}} &
+\textbf{Program construction}\\Source and target reader pilots\\\small ARCGraph/GOL}} &
 \fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
 \textbf{Definition persistence}\\Two acquisitions; prior support replayed\\\small ARCGraph/GOL}} \\[8pt]
 \fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Composition search}\\Caller search; historical comparison\\\small Native and earlier GOL interpreters}} &
+\textbf{Composition}\\Caller search and exact body factoring\\\small ARCGraph/GOL}} &
 \fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Execution fidelity}\\Exact outputs and deterministic replay\\\small Each backend separately}} \\
+\textbf{Execution and portability}\\Two control interpreters\\\small Shared graph primitives}} \\
 \end{tabular}
-\caption{Evidence coverage by stage and backend. These are separate checks, not consecutive stages of one completed learning cycle. Native caller search consumes the two acquired definitions; the historical comparison uses an earlier library. Cumulative learning and beneficial cross-task reuse remain unestablished.}
+\caption{Evidence coverage by stage and backend. These are separate checks, not consecutive stages of one completed learning cycle. Caller search tests use of acquired bodies; exact factoring tests shared structure in generated programs. Historical search evidence uses an earlier library and is reported separately. Cumulative learning and beneficial cross-task reuse remain unestablished.}
 \label{fig:evidence-coverage}
 \end{figure}
 
