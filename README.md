@@ -31,3 +31,11 @@ The separately approved [199-file evidence supplement](evidence/paper_evidence_s
 Extract it into a new directory and run `python verify.py` there (Python 3.10 or newer; no dependencies). The verifier checks file hashes and recomputes counts, trace comparisons and paired costs from saved records. It does not call a model, execute GOL or remeasure speed; use the runtime command above for executable replay.
 
 The archive is the exact reviewed snapshot, so its internal README retains the preparation-time release status. Publication was authorized on 8 November 2026. The later twenty-reader target-task study is not in this supplement. The archive includes its dataset attribution and Apache 2.0 notice; inherited source licenses are preserved.
+
+## Target-study executable replay
+
+The separately approved [426-file target-study supplement](evidence/paper_target_replay_supplement_v1.zip) contains all twenty saved target proposals, three exactly factored versions, the reader inputs, public training cases, and the unchanged ARCGraph/GOL runtime. Its [SHA-256](evidence/paper_target_replay_supplement_v1.sha256) identifies the exact approved archive.
+
+Extract it into a new directory. With Python 3.12, install its `requirements.txt`, then run `python -B replay.py --out ../target_replay_results`, choosing a new output directory outside the extraction. No model calls are made. Fresh local execution reproduced every saved outcome and primitive trace, including the four original native rejections. It also verified the three exact expansion proofs; these factored proposals concern one target task, not three new task successes.
+
+This replay checks executable behavior, not acquisition, beneficial retrieval or cumulative learning. The archive's internal README preserves its preparation-time approval status; publication was authorized on 8 November 2026. Public training data retain the included Apache 2.0 notice, and the runtime retains its MIT notice. The private competition solver payload is not included.
