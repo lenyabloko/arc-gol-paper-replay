@@ -16,7 +16,7 @@
 \begin{abstract}
 Introduced by Chollet in 2019, the Abstraction and Reasoning Corpus (ARC) has evolved from static generalization, to compositional generalization, to interactive skill acquisition in ARC-AGI-3~\cite[Section~7.4]{arcsurvey}. In his 2024 talk, Chollet presented the \emph{kaleidoscope hypothesis}: diverse situations arise from compositions and transformations of a relatively small stock of abstractions~\cite{chollet2024}. This offers a perspective on compositional generalization: new situations can be understood through combinations of reusable structure. The Platonic Representation Hypothesis proposes that learned representations converge toward a shared model of reality~\cite{huh}. We ask whether this shared structure can provide a basis for recursive abstraction discovery and, ultimately, interactive skill acquisition. Following DreamCoder's wake--sleep organization~\cite{dreamcoder}, we propose alternating inference over retained knowledge (wake) with abstraction learning (dream). DreamCoder compresses solved programs into library routines and trains a search-guiding recognition model; our learning stage instead elicits candidate abstractions from the extensive priors learned by large language models (LLMs) during pretraining on massive, diverse text corpora, checks their executable realizations, and retains them for deterministic reuse. We build on ARGA and its extension in NSA, which separate graph abstraction from program search~\cite{arga,nsa}: a perception stage converts grid scenes into abstract graphs, where nodes represent candidate objects with their properties, and edges encode relations between them. The language model interprets these structured observations and expresses object recognition and transformation rules in the Guarded Object Language (GOL). Retained abstractions carry descriptions, applicability conditions, realizations, and supporting cases; a reasoning container binds their roles to scene objects and executes their composition through the fixed object-operation interface. ARC's exact output checks make their recorded behavior testable; controlled relational changes and subsequent tasks test whether that behavior generalizes. 
 
-In two exposed ARC-AGI-2 training examples, graph-assisted readers generated executable programs that each reproduced a withheld demonstration. One frozen program also reproduced 32 new synthetic scenes within its declared rule family. Two separate acquisition readings produced parameterized actions that were saved in a study store and reproduced both original task test outputs; adding the second preserved all three demonstrations supporting the first. These results establish bounded program construction, persistence and within-family generalization; a future controlled study separates observation and retention effects.
+In two exposed ARC-AGI-2 training examples, graph-assisted readers generated executable programs that each reproduced a withheld demonstration. One frozen program also reproduced 32 new synthetic scenes within its declared rule family. Two separate acquisition readings produced parameterized actions that were saved in a study store and reproduced both original task test outputs; adding the second preserved all three demonstrations supporting the first. A separate fixed-schedule comparison shows that explicit effect constraints reduce candidate-checking CPU time by 32--37\% without changing exact fits. These results establish bounded construction, persistence, within-family generalization and checking efficiency; a future controlled study separates observation and retention effects.
 An offline notebook submitted to the ARC competition performs LLM-free rule induction and bounded program search over a frozen prior vocabulary; the proposed study develops acquisition and cross-task reuse of explicit GOL definitions.
 \end{abstract}
 
@@ -175,7 +175,7 @@ To examine reuse beyond the acquisition tasks, a separate pilot crosses the same
 
 A retrospective capacity diagnostic checks whether the primitive effects available to this search can satisfy the demonstrations' colour and canvas requirements. It expands retained calls, inspects the primitive contracts, and leaves unreviewed effects undecided. A separately frozen revision exposes existing colour-producing primitives equally to both conditions on the same five tasks. Its test answers were already exposed by the first comparison, so it is a development diagnostic rather than an independent evaluation. The original results remain unchanged; different search budgets preclude a speedup comparison between revisions (Appendix~\ref{app:effect-screening}).
 
-A paired execution replay holds every recorded candidate sequence fixed and compares ordinary checking with effect screening. All first-stage candidates execute because their states support subsequent beam construction; only terminal second-stage candidates can be excluded. We compare exact fits, non-excluded outcomes, demonstration executions and process CPU time, including parsing and screening overhead. Shared perception setup, candidate generation, ranking and log writing are outside the timed region. This isolates candidate-checking cost rather than end-to-end search efficiency (Appendix~\ref{app:effect-filter}).
+A paired execution replay holds every recorded candidate sequence fixed and compares ordinary checking with effect screening. All first-stage candidates execute because their states support subsequent beam construction; only terminal second-stage candidates can be excluded. We compare exact fits, non-excluded outcomes, demonstration executions and process CPU time, including parsing and screening overhead. Shared perception setup, candidate generation, ranking and log writing are outside the timed region. After the initial pass, two further repetitions were fixed before either began, with identical schedules, runtime, stores and worker limits. They assess timing repeatability on the same cases, not additional task performance. This isolates candidate-checking cost rather than end-to-end search efficiency (Appendix~\ref{app:effect-filter}).
 
 \subsubsection{Generalization within a task family}\label{design:family}
 The downward-extension program and its separately acquired stored-action counterpart are frozen and evaluated on 32 synthetic scenes. Grid dimensions, colours, occupied columns and seed lengths vary; each occupied column contains one foreground colour, extended from its topmost seed to the lower boundary. Expected outputs follow this specification independently of the interpreter. A fixed bank of eight programs, including versions without colour splitting and with width-bounded iteration, tests whether these cases distinguish the relevant operations under the same perception. The cases and earlier comparison were already available to the experimenter; they measure within-family behavior, not unseen-task transfer or program selection (Appendix~\ref{app:family-discrimination}).
@@ -274,7 +274,7 @@ A retained action generalizes within its specified family & The reader program a
 Readers use the retained vocabulary & Three of four store-enabled proposals reference saved actions; all four reproduce the source demonstrations. & Two known tasks; source-task actions are supplied, so this is interface use rather than unseen-task transfer. \\
 Definitions preserve behavior across control interpreters & Unchanged definitions and callers preserve all eight outputs after export: six demonstrations and two original test inputs. & A separate control interpreter shares perception and graph primitives; no independent validation of primitive semantics. \\
 A saved action enters LLM-free caller search & Bounded search binds the diagonal action to object size; the caller reproduces all three source demonstrations. & Supplied traversal grammar and an exposed source task; no measured store advantage or unseen-task transfer. \\
-Effect screening reduces candidate-checking cost & A palette check rejects 14,798 terminal candidates and reduces checking CPU time by 37\%, with no lost exact fit (Section~\ref{measure:cost}). & One paired replay of 29,289 checks across five selected tasks; fixed schedules, not end-to-end search or transfer. \\
+Effect screening reduces candidate-checking cost & A palette check rejects 14,798 terminal candidates and reduces checking CPU time by 32--37\% across three passes, with no lost exact fit (Section~\ref{measure:cost}). & Three paired passes over the same 29,289 checks on five selected tasks; fixed schedules, not end-to-end search or transfer. \\
 \hline
 \end{tabular}
 \caption{Evidence for bounded persistence, within-family generalization, control-interface portability, composition and effect-aware checking. These findings do not establish improved unseen-task solving. Complete reader outcomes and diagnostic comparisons are retained in Appendix~\ref{app:artifacts}.}
@@ -313,7 +313,7 @@ Its outer loop repeats according to grid width, rather than until each object re
 The source-excluded pilot also clarifies why object compatibility alone is insufficient for retrieval. Three of its five tasks require new colours, whereas every action in the initial search vocabulary preserves the input palette. Neither additional search nor the two retained actions can overcome that restriction. The remaining tasks are undecided by this check. Exposing existing colour-producing primitives lets both conditions solve one selected task, including its test input, by applying a border operation to each object; four tasks remain unresolved. The solution invokes no acquired definition, so this supports effect compatibility as a prerequisite for search, not a retention benefit. Full GOL already provides these operations: the restriction belonged to the tested vocabulary (Appendix~\ref{app:effect-screening}).
 
 \subsection{Effect-aware candidate checking}\label{results:effect-cost}
-The paired replay in Section~\ref{design:composition} measures the checking-cost component of Section~\ref{measure:cost}. On the revised candidate schedules, the conservative effect check rejects 14,798 terminal candidates before graph execution. All exact-fit decisions and all non-excluded outcomes are preserved. Demonstration executions fall from 81,152 to 40,289, and measured checking CPU time falls from 784 to 492 seconds, including parsing and screening overhead. This provides bounded evidence that effect constraints can reduce checking cost. The replay fixes candidate generation and ordering, so it does not measure an end-to-end search speedup, learned applicability or a lattice advantage (Appendix~\ref{app:effect-filter}).
+The paired replay in Section~\ref{design:composition} measures the checking-cost component of Section~\ref{measure:cost}. On the revised candidate schedules, the conservative effect check rejects 14,798 terminal candidates before graph execution. All exact-fit decisions and all non-excluded outcomes are preserved. In each of three paired passes, demonstration executions fall from 81,152 to 40,289. Measured checking CPU time decreases by 31.8--37.2\%, including parsing and screening overhead. This provides bounded evidence that effect constraints can reduce checking cost. The replay fixes candidate generation and ordering, so it does not measure an end-to-end search speedup, learned applicability or a lattice advantage (Appendix~\ref{app:effect-filter}).
 
 The reduction is concentrated in two tasks whose candidate schedules contain many palette-incompatible compositions (Figure~\ref{fig:effect-cost}). Where the check excludes no candidates, checking cost is essentially unchanged. Explicit effect constraints therefore help when they discriminate among proposed actions; they do not provide a uniform speedup or establish that the retained actions are useful.
 
@@ -330,18 +330,29 @@ The reduction is concentrated in two tasks whose candidate schedules contain man
   axis lines*=left, xmajorgrids=true, grid style={gray!20},
   tick label style={font=\small}, label style={font=\small},
   legend style={at={(0.5,1.05)},anchor=south,legend columns=2,draw=none,font=\small},
-  nodes near coords, every node near coord/.append style={font=\scriptsize},
   point meta=explicit symbolic]
-\addplot[fill=gray!40,draw=gray!70] coordinates {
-  (139.546875,E) [140] (0.15625,D) [0.156] (159.546875,C) [160]
-  (205.484375,B) [205] (278.8125,A) [279]};
-\addplot[fill=blue!55!black,draw=blue!55!black] coordinates {
-  (20.1875,E) [20] (0.125,D) [0.125] (161.765625,C) [162]
-  (30.734375,B) [31] (279.171875,A) [279]};
+\addplot[fill=gray!40,draw=black!60,error bars/.cd,x dir=both,x explicit]
+ table[x=value,y=task,x error plus=plus,x error minus=minus,meta=label] {
+value task plus minus label
+122.29166667 E 17.25520833 31.74479167 122
+0.11979167 D 0.03645833 0.02604167 0.120
+143.18229167 C 21.72395833 38.08854167 143
+156.55729167 B 48.92708333 29.55729167 157
+252.51562500 A 26.29687500 48.67187500 253
+};
+\addplot[fill=blue!55!black,draw=black!60,error bars/.cd,x dir=both,x explicit]
+ table[x=value,y=task,x error plus=plus,x error minus=minus,meta=label] {
+value task plus minus label
+18.31770833 E 1.86979167 3.69270833 18
+0.08333333 D 0.04166667 0.03645833 0.083
+144.34895833 C 20.02604167 37.44270833 144
+23.98437500 B 6.75000000 3.54687500 24
+252.43750000 A 26.73437500 48.93750000 252
+};
 \legend{Ordinary checking,With effect screening}
 \end{axis}
 \end{tikzpicture}
-\caption{Checking cost on all five selected tasks, summing the empty-store and retained-store schedules for each. One paired replay preserves the candidate order and exact-fit decisions. Screening excludes candidates on B and E; D reaches its fit after three candidates in each store condition. Bars show summed process CPU time, not end-to-end search duration or learning progress. Task identities and timing boundaries are given in Appendix~\ref{app:effect-filter}.}
+\caption{Checking cost on all five selected tasks, summing the empty-store and retained-store schedules for each. Bars show means over three paired passes; whiskers show the observed minimum and maximum, not confidence intervals. All passes preserve candidate order and exact-fit decisions. Screening excludes candidates on B and E; D reaches its fit after three candidates in each store condition and uses less than 0.2 seconds per pass. The measurement is process CPU time, not end-to-end search duration or learning progress. Task identities and timing boundaries are given in Appendix~\ref{app:effect-filter}.}
 \label{fig:effect-cost}
 \end{figure}
 
@@ -409,7 +420,7 @@ The practical composer must choose definitions, bindings, order, branches and st
 Retaining an executable body also differs from retaining an effect description that another composer can use. In the acquired examples, downward extension admits an exact sweep description, whereas the combined diagonal movement and extension is summarized only as a change of shape. The original GOL body remains executable, but this summary is insufficient to reconstruct its action. The native caller pilot uses the retained body directly. Translation to the older effect-template composer would instead need a checked multi-step representation; a shared graph backend alone does not establish compatibility (Appendix~\ref{app:effect-contract}).
 
 \section{Conclusion}
-We propose a learning and reasoning architecture that recovers executable abstractions from pretrained LLM priors, grounds them in scene graphs, and retains them for reuse through a GOL container. The completed experiments establish bounded program generation, persistence and preservation across two control interpreters sharing a graph adapter; a task-separated learning study remains necessary to establish benefits for subsequent reasoning. Representation alignment and executable transfer are related but distinct targets. Establishing their relationship requires evidence; it should not be presumed from either a shared philosophical metaphor or an architectural preference.
+We propose a learning and reasoning architecture that recovers executable abstractions from pretrained LLM priors, grounds them in scene graphs, and retains them for reuse through a GOL container. The completed experiments establish bounded program generation, persistence and preservation across two control interpreters sharing a graph adapter. Conservative effect constraints also reduce checking cost on fixed candidate schedules. A task-separated learning study remains necessary to establish benefits for subsequent reasoning. Representation alignment and executable transfer are related but distinct targets. Establishing their relationship requires evidence; it should not be presumed from either a shared philosophical metaphor or an architectural preference.
 
 \section{Future Work}\label{sec:future-work}
 A controlled four-condition comparison will separate the effects of structured observations and acquired knowledge: grids alone or grids with scene graphs, each paired with an empty or frozen acquired store. Its goal is to establish whether graph observations improve acquisition, retained definitions improve subsequent solving, and the two effects reinforce each other. These comparisons require a common task population and budget, with all attempts included; they are not results of the present pilot.
@@ -620,7 +631,22 @@ Supplied mechanism controls complement the recorded search outcomes. A successfu
 
 Figure~\ref{fig:effect-cost} follows the frozen selection order: A is \texttt{e41c6fd3}, B \texttt{7e02026e}, C \texttt{ded97339}, D \texttt{4258a5f9}, and E \texttt{140c817e}. The check excludes 6,442 candidates on B and 8,356 on E; no candidates are excluded on the other three tasks. The two exact candidate fits are the same border solution in the empty-store and retained-store schedules for D, not two independently solved tasks.
 
-All ten schedules complete, covering 29,289 candidate checks. The filter excludes 14,798 terminal candidates; all 1,062 first-stage checks execute. No exact fit is lost, every non-excluded outcome matches its paired baseline, and all baseline outcomes reproduce the frozen records. There are 81,152 demonstration executions without screening and 40,289 with it. Summed process CPU time is 783.55 and 491.98 seconds respectively; summed timed wall duration is 821.32 and 512.41 seconds. These sums cover the measured checking regions, not overall job duration. The experiment uses two workers on an Intel Core i7-8550U running Windows 11 and Python 3.12. It is one interleaved replay on one machine, without a timing uncertainty estimate. Source and store hashes remain unchanged; task-level accuracy remains identical in both store conditions. The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/398a2056bd87e55b43f8316d636913564cfcdd7b/experiments/paper_gol_examples/cross_task_search_20261108/effect_filter_replay}{paired outcomes, controls and accounting} provide the complete comparison.
+Each pass completes all ten schedules, covering the same 29,289 candidate checks. The filter excludes 14,798 terminal candidates; all 1,062 first-stage checks execute. No exact fit is lost, every non-excluded outcome matches its paired baseline, and all baseline outcomes reproduce the frozen records. There are 81,152 demonstration executions without screening and 40,289 with it. The timing sums cover the measured checking regions, not overall job duration. The experiment uses two workers on an Intel Core i7-8550U running Windows 11 and Python 3.12. Two predeclared repetitions repeat every schedule with the same limits. Across all three passes, every candidate outcome and exclusion witness is identical, and all 107 runtime and store files match. Table~\ref{tab:effect-repetitions} reports the variation in measured cost on this machine. The range is descriptive, not a confidence interval or evidence from additional tasks. Source and store hashes remain unchanged; task-level accuracy remains identical in both store conditions. The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/398a2056bd87e55b43f8316d636913564cfcdd7b/experiments/paper_gol_examples/cross_task_search_20261108/effect_filter_replay}{initial paired outcomes and mechanism controls} and \href{https://github.com/lenyabloko/arc2-object-dsl/tree/3a5c2d027f6a655dafa502ec7f586e1cc863a274/experiments/paper_gol_examples/cross_task_search_20261108/effect_filter_replay/replication}{repetition protocol and complete results} preserve the comparison.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{lrrr}
+\hline
+Pass & Ordinary CPU (s) & Screened CPU (s) & Reduction (\%) \\
+\hline
+1 & 783.5 & 492.0 & 37.2\\
+2 & 703.7 & 480.0 & 31.8\\
+3 & 536.8 & 345.5 & 35.6\\
+\hline
+\end{tabular}
+\caption{Repeated checking of identical candidate schedules. Counts and semantic outcomes are unchanged in every pass; timing variation does not increase the task sample size.}
+\label{tab:effect-repetitions}
+\end{table}
 
 \section{Reproducibility resources}\label{app:artifacts}
 \subsection{Submitted notebook identity}
