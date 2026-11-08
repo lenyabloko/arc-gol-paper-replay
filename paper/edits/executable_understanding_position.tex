@@ -2,6 +2,8 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[section]{placeins}
 \usepackage{hyperref}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \title{Exploring the Kaleidoscope Hypothesis:\\Executable Abstraction Discovery in ARC-AGI-2}
 \author{Len Yabloko\thanks{The author used commercial LLMs to assist in conducting all experiments and in writing this paper. This assistance is distinct from LLM calls within the evaluated procedures; designated wake execution and deterministic checks run without such calls. The manuscript is released under Creative Commons Attribution 4.0 (CC BY 4.0). Repository source code is provided under the MIT License, with existing copyright notices preserved; third-party dependencies retain their respective licenses. Public replay package: \url{https://github.com/lenyabloko/arc-gol-paper-replay}.}}
 \date{}
@@ -310,7 +312,38 @@ Its outer loop repeats according to grid width, rather than until each object re
 
 The source-excluded pilot also clarifies why object compatibility alone is insufficient for retrieval. Three of its five tasks require new colours, whereas every action in the initial search vocabulary preserves the input palette. Neither additional search nor the two retained actions can overcome that restriction. The remaining tasks are undecided by this check. Exposing existing colour-producing primitives lets both conditions solve one selected task, including its test input, by applying a border operation to each object; four tasks remain unresolved. The solution invokes no acquired definition, so this supports effect compatibility as a prerequisite for search, not a retention benefit. Full GOL already provides these operations: the restriction belonged to the tested vocabulary (Appendix~\ref{app:effect-screening}).
 
-On the revised candidate schedules, the conservative effect check rejects 14,798 terminal candidates before graph execution. All exact-fit decisions and all non-excluded outcomes are preserved. Demonstration executions fall from 81,152 to 40,289, and measured checking CPU time falls from 784 to 492 seconds, including parsing and screening overhead. This provides bounded evidence that effect constraints can reduce checking cost. The replay fixes candidate generation and ordering, so it does not measure an end-to-end search speedup, learned applicability or a lattice advantage (Appendix~\ref{app:effect-filter}).
+\subsection{Effect-aware candidate checking}\label{results:effect-cost}
+The paired replay in Section~\ref{design:composition} measures the checking-cost component of Section~\ref{measure:cost}. On the revised candidate schedules, the conservative effect check rejects 14,798 terminal candidates before graph execution. All exact-fit decisions and all non-excluded outcomes are preserved. Demonstration executions fall from 81,152 to 40,289, and measured checking CPU time falls from 784 to 492 seconds, including parsing and screening overhead. This provides bounded evidence that effect constraints can reduce checking cost. The replay fixes candidate generation and ordering, so it does not measure an end-to-end search speedup, learned applicability or a lattice advantage (Appendix~\ref{app:effect-filter}).
+
+The reduction is concentrated in two tasks whose candidate schedules contain many palette-incompatible compositions (Figure~\ref{fig:effect-cost}). Where the check excludes no candidates, checking cost is essentially unchanged. Explicit effect constraints therefore help when they discriminate among proposed actions; they do not provide a uniform speedup or establish that the retained actions are useful.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  xbar, width=0.90\linewidth, height=6.4cm,
+  xmin=0, xmax=320, xtick={0,100,200,300},
+  xlabel={Candidate-checking CPU time (seconds)},
+  symbolic y coords={E,D,C,B,A}, ytick=data,
+  yticklabels={Task E,Task D,Task C,Task B,Task A},
+  enlarge y limits=0.16, bar width=7pt,
+  axis lines*=left, xmajorgrids=true, grid style={gray!20},
+  tick label style={font=\small}, label style={font=\small},
+  legend style={at={(0.5,1.05)},anchor=south,legend columns=2,draw=none,font=\small},
+  nodes near coords, every node near coord/.append style={font=\scriptsize},
+  point meta=explicit symbolic]
+\addplot[fill=gray!40,draw=gray!70] coordinates {
+  (139.546875,E) [140] (0.15625,D) [0.156] (159.546875,C) [160]
+  (205.484375,B) [205] (278.8125,A) [279]};
+\addplot[fill=blue!55!black,draw=blue!55!black] coordinates {
+  (20.1875,E) [20] (0.125,D) [0.125] (161.765625,C) [162]
+  (30.734375,B) [31] (279.171875,A) [279]};
+\legend{Ordinary checking,With effect screening}
+\end{axis}
+\end{tikzpicture}
+\caption{Checking cost on all five selected tasks, summing the empty-store and retained-store schedules for each. One paired replay preserves the candidate order and exact-fit decisions. Screening excludes candidates on B and E; D reaches its fit after three candidates in each store condition. Bars show summed process CPU time, not end-to-end search duration or learning progress. Task identities and timing boundaries are given in Appendix~\ref{app:effect-filter}.}
+\label{fig:effect-cost}
+\end{figure}
 
 \subsection{Generalization within a task family}
 Both the reader program and its stored-action counterpart reproduce all 32 scenes despite changes in dimensions, colours and seed configurations (Section~\ref{design:family}). Thus the retained action preserves the specified transformation beyond its acquisition examples, within the declared one-colour-per-column family.
@@ -584,6 +617,8 @@ The program adds blue cells around each input object using the supplied border p
 The replay compares ordinary execution with a conservative palette check on the same frozen candidate schedules. Retained definitions are expanded before checking; unknown operations or nonliteral colour expressions prevent exclusion. Every first-stage candidate still executes, preserving the observations used by the beam. For second-stage candidates, exclusion requires a demonstration colour absent from both the initial objects and background and the candidate's possible introduced colours. Baseline and filtered execution order alternates by candidate index, with fresh graph copies in both conditions. Parsing, expansion, screening, graph copying and rendering are timed; shared setup, candidate generation and log writing are not.
 
 Supplied mechanism controls complement the recorded search outcomes. A successful border program wrapped as a terminal two-stage composition remains eligible and exact, as does a version with a computed colour argument that the analysis leaves unknown. An identity program lacking the required colour is excluded. A recolouring program that supplies the colour but produces the wrong shape remains eligible for ordinary checking. These controls test conservative rejection, not acquisition or additional task-solving success.
+
+Figure~\ref{fig:effect-cost} follows the frozen selection order: A is \texttt{e41c6fd3}, B \texttt{7e02026e}, C \texttt{ded97339}, D \texttt{4258a5f9}, and E \texttt{140c817e}. The check excludes 6,442 candidates on B and 8,356 on E; no candidates are excluded on the other three tasks. The two exact candidate fits are the same border solution in the empty-store and retained-store schedules for D, not two independently solved tasks.
 
 All ten schedules complete, covering 29,289 candidate checks. The filter excludes 14,798 terminal candidates; all 1,062 first-stage checks execute. No exact fit is lost, every non-excluded outcome matches its paired baseline, and all baseline outcomes reproduce the frozen records. There are 81,152 demonstration executions without screening and 40,289 with it. Summed process CPU time is 783.55 and 491.98 seconds respectively; summed timed wall duration is 821.32 and 512.41 seconds. These sums cover the measured checking regions, not overall job duration. The experiment uses two workers on an Intel Core i7-8550U running Windows 11 and Python 3.12. It is one interleaved replay on one machine, without a timing uncertainty estimate. Source and store hashes remain unchanged; task-level accuracy remains identical in both store conditions. The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/398a2056bd87e55b43f8316d636913564cfcdd7b/experiments/paper_gol_examples/cross_task_search_20261108/effect_filter_replay}{paired outcomes, controls and accounting} provide the complete comparison.
 
