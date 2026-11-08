@@ -147,7 +147,24 @@ A frozen GOL store can support execution without repeating LLM acquisition. Conv
 
 \section{Experimental Design}\label{sec:experimental-design}
 \subsection{Completed pilot procedures}
-The pilot examines successive requirements of the proposal: executing object-level programs, eliciting them from demonstrations, retaining callable actions, and using explicit control structure beyond a single realization. Each experiment tests one requirement; together they do not constitute a completed learning cycle. The pilots include a task-separated observation/store comparison; the larger family-separated learning study remains proposed (Section~\ref{design:four-condition}).
+The pilot examines successive requirements of the proposal: executing object-level programs, eliciting them from demonstrations, retaining callable actions, and using explicit control structure beyond a single realization. Each experiment tests one requirement; together they do not constitute a completed learning cycle. The pilots include a task-separated observation/store comparison; the larger family-separated learning study remains proposed (Section~\ref{design:four-condition}). Figure~\ref{fig:evidence-coverage} maps the completed checks to the stages they exercise.
+
+\begin{figure}[htbp]
+\centering
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{cc}
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Program construction}\\Source and target reader pilots\\\small ARCGraph/GOL}} &
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Definition persistence}\\Two acquisitions; prior support replayed\\\small ARCGraph/GOL}} \\[8pt]
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Composition}\\Caller search and exact body factoring\\\small ARCGraph/GOL}} &
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Execution and portability}\\Two control interpreters\\\small Shared graph primitives}} \\
+\end{tabular}
+\caption{Evidence coverage by stage and backend. These are separate checks, not consecutive stages of one completed learning cycle. Caller search tests use of acquired bodies; exact factoring tests shared structure in generated programs. Historical search evidence uses an earlier library and is reported separately. Cumulative learning and beneficial cross-task reuse remain unestablished.}
+\label{fig:evidence-coverage}
+\end{figure}
 
 \subsubsection{Execution fidelity}\label{design:execution}
 Two supplied ARC programs test whether the declared graph-operation interface executes consistently. We compare their outputs with five demonstration targets and repeat execution with fixed dependencies. Agreement between the graph and its cached grid mirror checks internal consistency after each action; because both share update logic, it is not independent validation of primitive semantics. These are implementation controls, not acquisition experiments.
@@ -197,23 +214,6 @@ The two supplied-program ARC replay tasks used eight-connected monochrome foregr
 
 \subsubsection{Sensitivity to object segmentation}\label{design:perception-diagnostic}
 This diagnostic tests whether a fixed program's correctness depends on the executor's object boundaries. It changes perception at execution time; it performs no program generation, composition search or revision. A separate archive supplies six additional readings attributed to Opus 5.5 on matching rooms. Their text inputs agree after newline normalization and their decoded images agree pixel-for-pixel with the first pilot. Every supplied plan is checked locally, unchanged, under the original view and under a fixed four-connected monochrome view with modal-colour background. These are deterministic replays of archived readings; model-call identity and reader-access isolation are attributed to the source protocol rather than independently observed. The paired comparison records how many unchanged plans reproduce every demonstration under each view. The original grid-only instructions omit the promised segmentation specification, so the diagnostic examines an interface confound rather than estimating a causal benefit of graph observations. Alternative-view outcomes were already reported before the local replay; the comparison is diagnostic, not a prospective test. The matched pilots and proposed family-separated study therefore state the same segmentation and background contract in every condition (Section~\ref{design:four-condition}).
-
-\begin{figure}[htbp]
-\centering
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{cc}
-\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Program construction}\\Source and target reader pilots\\\small ARCGraph/GOL}} &
-\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Definition persistence}\\Two acquisitions; prior support replayed\\\small ARCGraph/GOL}} \\[8pt]
-\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Composition}\\Caller search and exact body factoring\\\small ARCGraph/GOL}} &
-\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
-\textbf{Execution and portability}\\Two control interpreters\\\small Shared graph primitives}} \\
-\end{tabular}
-\caption{Evidence coverage by stage and backend. These are separate checks, not consecutive stages of one completed learning cycle. Caller search tests use of acquired bodies; exact factoring tests shared structure in generated programs. Historical search evidence uses an earlier library and is reported separately. Cumulative learning and beneficial cross-task reuse remain unestablished.}
-\label{fig:evidence-coverage}
-\end{figure}
 
 \subsection{Proposed family-separated learning study}\label{design:four-condition}
 ARC motivates evaluating acquisition efficiency while accounting for priors and experience~\cite{chollet}. The future four-condition study would compare the same pretrained LLM, executable language, task demonstrations, verifier, and resource limits in a crossed design: grids alone versus grids with abstract scene graphs, and an empty versus a previously learned, frozen abstraction store. All arms would use the same execution interface; only the information presented to the reader and access to retained knowledge would differ. In this study the LLM proposes the target-task program in every condition, including calls to stored definitions when available. It measures assistance to program construction; the separate no-LLM consumer comparison measures conversion yield and requires a controller that searches over the retained realizations. Every arm must name the same segmentation and background contract, even when per-scene graph observations are withheld. Otherwise an apparent observation benefit can reflect undisclosed executor semantics; a separate disclosure factor would be needed to measure that effect.
