@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "example": "diagonal",
+      "exact": 3,
+      "cases": 3,
+      "actions": 9,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "59eb7a08340d51cbefe9a3a506b3639292fecb42b0e5c9cb9f9638092a5ea54b"
+    },
+    {
+      "example": "downward",
+      "exact": 3,
+      "cases": 3,
+      "actions": 18,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1"
+    },
+    {
+      "example": "stored_definition",
+      "exact": 3,
+      "cases": 3,
+      "actions": 13,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 7,
+      "program_sha256": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b"
+    },
+    {
+      "example": "family32",
+      "exact": 32,
+      "cases": 32,
+      "actions": 618,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1"
+    }
+  ],
+  "note": "Semantic traces omit only path-dependent source manifests when compared."
+}

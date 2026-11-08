@@ -1,0 +1,15 @@
+{
+  "scope": "Fixed replay inputs, not new acquisitions or tests selected after outcome",
+  "files": {
+    "reader_pilot_20261108/plan_B.json": "59eb7a08340d51cbefe9a3a506b3639292fecb42b0e5c9cb9f9638092a5ea54b",
+    "reader_second_task_20261108/plan_B.json": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1",
+    "definition_acquisition_20261108/stored_program.json": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b",
+    "definition_acquisition_20261108/stored_defs.json": "747aa8ee16e60c9a64d295c927d4007893a25cf5418aa745c912906cb0278c08",
+    "second_acquisition_20261108/stored_program.json": "9da1d281094ccef6714ffd6e5d9be2331d557b0315faa0ab35168899112be1ad",
+    "second_acquisition_20261108/stored_defs.json": "4da934dca7fdc986e6002886cb2ab3c418b0ac3a839c9760c7a46313571999b5",
+    "downward_generalization_20261108/plan.json": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1",
+    "downward_generalization_20261108/cases.json": "4b8b044bcc0a2ec53f16dc1c4dc265cfeaed6fdbaffbd4cc7853d422039bee0b",
+    "offline_replay/public_test_replay/d037b0a7.json": "9c809576a2e84070f4e86e0004bca3fb5af298b70ca579af07adcae684853098",
+    "offline_replay/public_test_replay/50c07299.json": "c2af29ce3efc977eb2a5f119a4debd1b0ad5bad99f61ec4591c3614bd2d3f291"
+  }
+}

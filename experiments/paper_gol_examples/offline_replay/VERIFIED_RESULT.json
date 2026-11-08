@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "example": "diagonal",
+      "exact": 3,
+      "cases": 3,
+      "actions": 9,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "59eb7a08340d51cbefe9a3a506b3639292fecb42b0e5c9cb9f9638092a5ea54b",
+      "population_kind": "demonstration_replay"
+    },
+    {
+      "example": "downward",
+      "exact": 3,
+      "cases": 3,
+      "actions": 18,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1",
+      "population_kind": "demonstration_replay"
+    },
+    {
+      "example": "stored_definition",
+      "exact": 3,
+      "cases": 3,
+      "actions": 13,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 7,
+      "program_sha256": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b",
+      "population_kind": "demonstration_replay"
+    },
+    {
+      "example": "stored_diagonal",
+      "exact": 3,
+      "cases": 3,
+      "actions": 9,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 3,
+      "program_sha256": "9da1d281094ccef6714ffd6e5d9be2331d557b0315faa0ab35168899112be1ad",
+      "population_kind": "demonstration_replay"
+    },
+    {
+      "example": "preserved_support",
+      "exact": 3,
+      "cases": 3,
+      "actions": 13,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 7,
+      "program_sha256": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b",
+      "population_kind": "demonstration_replay"
+    },
+    {
+      "example": "stored_family32",
+      "exact": 32,
+      "cases": 32,
+      "actions": 597,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 105,
+      "program_sha256": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b",
+      "population_kind": "synthetic_family_replay"
+    },
+    {
+      "example": "original_test_downward",
+      "exact": 1,
+      "cases": 1,
+      "actions": 7,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 2,
+      "program_sha256": "13ba378ac8fc7d340e4f08f54b5ce191fa8eab1f83caea0f9b7896406ad0c84b",
+      "population_kind": "original_test_replay"
+    },
+    {
+      "example": "original_test_diagonal",
+      "exact": 1,
+      "cases": 1,
+      "actions": 5,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 1,
+      "program_sha256": "9da1d281094ccef6714ffd6e5d9be2331d557b0315faa0ab35168899112be1ad",
+      "population_kind": "original_test_replay"
+    },
+    {
+      "example": "family32",
+      "exact": 32,
+      "cases": 32,
+      "actions": 618,
+      "mismatches": 0,
+      "semantic_replay_identical": true,
+      "stored_definition_calls": 0,
+      "program_sha256": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1",
+      "population_kind": "synthetic_family_replay"
+    }
+  ],
+  "note": "Semantic traces omit only path-dependent source manifests when compared."
+}

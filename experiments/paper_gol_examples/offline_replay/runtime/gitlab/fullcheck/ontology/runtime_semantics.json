@@ -1,0 +1,307 @@
+{
+  "schema_version": "brain_blood_barrier.runtime.v1",
+  "ontology_iri": "https://example.org/arga/runtime/brain-blood-barrier/v1",
+  "ontology_graph_digest": "80c692c2217088ba046ac449b21b9bc47a63b58b70e2854cec30aa78ef294b7b",
+  "payload_digest": "91aba0417888d35ce2049ad8183f791be45ab4adbd971f02cc3358d0a9cd852a",
+  "semantic_priors": {
+    "image.abstraction_order": {
+      "ontology_iri": "arga:prior_image_abstraction_order",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["nbccg", "nbccg8", "ccgbr", "ccgbr8", "ccgbr2", "ccgbr28", "ccgbcr", "ccgbcr8", "ncccg", "ncccg8", "ccg", "ccg8", "nbvcg", "nbhcg", "mcccg", "mcccg8", "occg", "occg8", "lrg", "na"]
+    },
+    "image.default_background_color": {
+      "ontology_iri": "arga:prior_default_background_color",
+      "classification": "ontology_bound_semantic_prior",
+      "value": 0
+    },
+    "image.multicolor_abstractions": {
+      "ontology_iri": "arga:prior_multicolor_abstractions",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["mcccg", "occg", "na", "mcccg8", "occg8"]
+    },
+    "arc_graph.insertion_transformation_ops": {
+      "ontology_iri": "arga:prior_insertion_transformation_ops",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["insert"]
+    },
+    "arc_graph.whole_graph_transformation_ops": {
+      "ontology_iri": "arga:prior_whole_graph_transformation_ops",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["magnet", "fill", "truncate", "shift", "recolor", "upscale_grid", "downscale_grid", "rotate_grid", "mirror_grid", "connect", "crop", "extract", "overlay", "beam", "squeeze", "symmetry_grid", "placement_grid", "basic_grid", "neighborhood_grid", "count_grid", "tile_grid", "pyramid_grid", "arbitrary_duplicate", "rotate_duplicate", "duplicate"]
+    },
+    "arc_graph.dynamic_transformation_allowlist": {
+      "ontology_iri": "arga:prior_dynamic_transformation_allowlist",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {"na": ["duplicate", "extract"]}
+    },
+    "arc_graph.filter_ops": {
+      "ontology_iri": "arga:prior_filter_ops",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"]
+    },
+    "arc_graph.param_binding_ops": {
+      "ontology_iri": "arga:prior_param_binding_ops",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["param_bind_neighbor_by_size", "param_bind_neighbor_by_color", "param_bind_aligned_node_by_color", "param_bind_other_node_same_color", "param_bind_node_by_shape", "param_bind_node_by_size", "param_bind_node_by_color"]
+    },
+    "arc_graph.transformation_ops": {
+      "ontology_iri": "arga:prior_abstraction_transformation_capabilities",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {
+        "na": ["downscale_grid", "symmetry_grid", "placement_grid", "basic_grid", "neighborhood_grid", "count_grid", "tile_grid", "pyramid_grid", "overlay"],
+        "nbccg": ["update_color", "move_node", "extend_node", "move_node_max", "fill_rectangle", "hollow_rectangle", "add_border", "beam", "connect_aligned_nodes", "rotate_node", "mirror", "flip", "insert", "remove_node"],
+        "ccgbr": ["update_color", "move_node", "extend_node", "move_node_max", "squeeze"],
+        "ccgbr2": ["update_color", "move_node", "extend_node", "move_node_max"],
+        "ccgbcr": ["update_color", "move_node", "extend_node", "move_node_max"],
+        "ncccg": [],
+        "ccg": [],
+        "nbvcg": ["update_color", "move_node", "extend_node", "move_node_max", "beam", "connect_aligned_nodes"],
+        "nbhcg": ["update_color", "move_node", "extend_node", "move_node_max", "beam", "connect_aligned_nodes"],
+        "mcccg": ["move_node", "move_node_max", "overlay", "extract", "downscale_grid", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"],
+        "occg": ["move_node", "move_node_max", "overlay", "extract", "downscale_grid", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"],
+        "lrg": ["update_color"],
+        "nbccg8": ["update_color", "move_node", "extend_node", "move_node_max", "fill_rectangle", "hollow_rectangle", "add_border", "beam", "connect_aligned_nodes", "rotate_node", "mirror", "flip", "insert", "remove_node"],
+        "ccgbr8": ["update_color", "move_node", "extend_node", "move_node_max"],
+        "ccgbr28": ["update_color", "move_node", "extend_node", "move_node_max"],
+        "ccgbcr8": ["update_color", "move_node", "extend_node", "move_node_max"],
+        "ncccg8": [],
+        "ccg8": [],
+        "mcccg8": ["move_node", "move_node_max", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"],
+        "occg8": ["move_node", "move_node_max", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"]
+      }
+    },
+    "arc_graph.dynamic_parameters": {
+      "ontology_iri": "arga:prior_dynamic_parameters",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["name", "color"]
+    },
+    "arc_graph.direction_from": {
+      "ontology_iri": "arga:prior_direction_from",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {"s": "DOWN", "n": "UP", "e": "RIGHT", "w": "LEFT", "sw": "DOWN_LEFT", "se": "DOWN_RIGHT", "nw": "UP_LEFT", "ne": "UP_RIGHT"}
+    },
+    "arc_graph.direction_to": {
+      "ontology_iri": "arga:prior_direction_to",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {"s": "UP", "n": "DOWN", "e": "LEFT", "w": "RIGHT", "sw": "UP_RIGHT", "se": "UP_LEFT", "nw": "DOWN_RIGHT", "ne": "DOWN_LEFT"}
+    },
+    "arc_graph.point_map": {
+      "ontology_iri": "arga:prior_point_map",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {"s": "BOTTOM", "n": "TOP", "e": "RIGHT", "w": "LEFT", "sw": "BOTTOM_LEFT", "se": "BOTTOM_RIGHT", "nw": "TOP_LEFT", "ne": "TOP_RIGHT"}
+    },
+    "arc_graph.summary_tile_types": {
+      "ontology_iri": "arga:prior_summary_tile_types",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["color_count_desc", "color_count_desc_drop_most", "color_count_histogram_desc", "first_seen_color_order", "component_color_size_desc", "separator_cell_max_count_mask", "separator_cell_color_grid_mirror_h", "separator_cell_dominant_color_grid", "separator_sparse_cell_position_blocks", "overlay_color_bbox_patterns", "vertical_symmetry_classifier", "shape_symbol_summary", "glyph_row_summary", "singleton_column_snake_square", "lattice_corner_cell_summary", "label_marker_summary", "marker_relation_summary", "component_count_diagonal", "largest_component_color_columns", "gap_prefix_summary", "solid_macro_shape_mask", "component_count_prefix", "component_count_pattern_summary", "arrange_by_missing_corner", "largest_hollow_rectangle_color_square"]
+    },
+    "task.realized_dream_cost_rank": {
+      "ontology_iri": "arga:prior_realized_dream_cost_rank",
+      "classification": "ontology_bound_semantic_prior",
+      "value": {"cheap_grid_scan": 0, "constant_time": 0, "bounded_feature_scan": 1, "one_call_dsl": 2, "transform_validation": 3, "compiled_rule": 3, "unknown": 9, "__none__": 9}
+    },
+    "task.preprocess_flags": {
+      "ontology_iri": "arga:prior_preprocess_flags",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["_ready", "_insert_batchable", "_edge_candidate", "_move_node_order"]
+    },
+    "dsl.simple_update_color_abstraction_order": {
+      "ontology_iri": "arga:prior_simple_update_color_abstraction_order",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["nbccg", "ccgbr", "ccgbr2", "ccg", "nbvcg", "nbhcg", "lrg"]
+    },
+    "dsl.simple_move_node_abstraction_order": {
+      "ontology_iri": "arga:prior_simple_move_node_abstraction_order",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["nbccg"]
+    },
+    "dsl.component_size_color_abstraction_order": {
+      "ontology_iri": "arga:prior_component_size_color_abstraction_order",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["ccgbr", "nbccg", "ccgbr2", "ccgbcr", "ccg", "nbvcg", "nbhcg"]
+    },
+    "dsl.compact_beam_type_order": {
+      "ontology_iri": "arga:prior_compact_beam_type_order",
+      "classification": "ontology_bound_semantic_prior",
+      "value": ["fill_component_bbox_holes", "fill_open_frame_from_marker", "l_path_between_markers", "corner_anchor_rectangle_fill", "rectangle_gap_fill", "midpoint_cross_between_markers", "diagonal_pyramid_from_base_run", "diagonal_endpoint_rays", "diagonal_cross_from_singleton", "diagonal_rays_from_marker_corners", "diagonal_reflect_edge_barrier", "orthogonal_marker_extend_overlap", "broken_line", "repeat_pattern_line", "pattern_line", "center_node_pattern_line", "periodic_line_alternation", "between_pairs", "between_pairs_horizontal", "between_pairs_vertical", "box_based", "color_inheritance", "most_color_line", "space_based", "rectangle_shooting", "linspace", "infect"]
+    }
+  },
+  "execution_policy": {
+    "image.max_allowed_pixels": {"ontology_iri": "arga:policy_image_max_allowed_pixels", "classification": "versioned_execution_policy", "value": 999},
+    "image.max_arc_dimension": {"ontology_iri": "arga:policy_image_max_arc_dimension", "classification": "versioned_execution_policy", "value": 30},
+    "arc_graph.max_nodes_to_update": {"ontology_iri": "arga:policy_arc_graph_max_nodes_to_update", "classification": "versioned_execution_policy", "value": 999},
+    "task.min_time_limit": {"ontology_iri": "arga:policy_task_min_time_limit", "classification": "versioned_execution_policy", "value": 60},
+    "task.default_soft_time_limit": {"ontology_iri": "arga:policy_task_default_soft_time_limit", "classification": "versioned_execution_policy", "value": 120},
+    "task.max_allowed_pixels": {"ontology_iri": "arga:policy_task_max_allowed_pixels", "classification": "versioned_execution_policy", "value": 999},
+    "task.max_abstract_nodes": {"ontology_iri": "arga:policy_task_max_abstract_nodes", "classification": "versioned_execution_policy", "value": 199},
+    "task.max_queue_length": {"ontology_iri": "arga:policy_task_max_queue_length", "classification": "versioned_execution_policy", "value": 999999},
+    "task.max_tree_width": {"ontology_iri": "arga:policy_task_max_tree_width", "classification": "versioned_execution_policy", "value": 99999},
+    "task.max_num_transformations": {"ontology_iri": "arga:policy_task_max_num_transformations", "classification": "versioned_execution_policy", "value": 99},
+    "task.max_solutions_per_example": {"ontology_iri": "arga:policy_task_max_solutions_per_example", "classification": "versioned_execution_policy", "value": 9},
+    "task.max_attempts_per_example": {"ontology_iri": "arga:policy_task_max_attempts_per_example", "classification": "versioned_execution_policy", "value": 3},
+    "task.max_branch_length": {"ontology_iri": "arga:policy_task_max_branch_length", "classification": "versioned_execution_policy", "value": 99},
+    "task.max_tree_depth": {"ontology_iri": "arga:policy_task_max_tree_depth", "classification": "versioned_execution_policy", "value": 3},
+    "task.max_mcccg_duplicate_candidates": {"ontology_iri": "arga:policy_task_max_mcccg_duplicate_candidates", "classification": "versioned_execution_policy", "value": 512},
+    "task.excessive_abort_threshold": {"ontology_iri": "arga:policy_task_excessive_abort_threshold", "classification": "versioned_execution_policy", "value": 100},
+    "task.repeated_abort_message_threshold": {"ontology_iri": "arga:policy_task_repeated_abort_message_threshold", "classification": "versioned_execution_policy", "value": 25},
+    "task.max_ccg_edge_probe_candidates": {"ontology_iri": "arga:policy_task_max_ccg_edge_probe_candidates", "classification": "versioned_execution_policy", "value": 36},
+    "task.max_ccg_edge_probe_combinations": {"ontology_iri": "arga:policy_task_max_ccg_edge_probe_combinations", "classification": "versioned_execution_policy", "value": 2500},
+    "task.occg_default_active": {"ontology_iri": "arga:policy_task_occg_default_active", "classification": "versioned_execution_policy", "value": false},
+    "task.lrg_default_active": {"ontology_iri": "arga:policy_task_lrg_default_active", "classification": "versioned_execution_policy", "value": false}
+  },
+  "field_classifications": {
+    "Image.max_allowd_pixels": "versioned_execution_policy",
+    "Image.max_arc_dimension": "versioned_execution_policy",
+    "Image.abstractions": "ontology_bound_semantic_prior",
+    "Image.abstraction_ops": "implementation_only_mechanism",
+    "Image.multicolor_abstractions": "ontology_bound_semantic_prior",
+    "ARCGraph.colors": "implementation_only_mechanism",
+    "ARCGraph.img_dir": "implementation_only_mechanism",
+    "ARCGraph.max_nodes_to_update": "versioned_execution_policy",
+    "ARCGraph.insertion_transformation_ops": "ontology_bound_semantic_prior",
+    "ARCGraph.whole_graph_transformation_ops": "ontology_bound_semantic_prior",
+    "ARCGraph.dynamic_transformation_allowlist": "ontology_bound_semantic_prior",
+    "ARCGraph.filter_ops": "ontology_bound_semantic_prior",
+    "ARCGraph.param_binding_ops": "ontology_bound_semantic_prior",
+    "ARCGraph.transformation_ops": "ontology_bound_semantic_prior",
+    "ARCGraph.dynamic_parameters": "ontology_bound_semantic_prior",
+    "ARCGraph.direction_from": "ontology_bound_semantic_prior",
+    "ARCGraph.direction_to": "ontology_bound_semantic_prior",
+    "ARCGraph.point_map": "ontology_bound_semantic_prior",
+    "ARCGraph.shape_maps": "derived_runtime_state",
+    "ARCGraph.summary_tile_types": "ontology_bound_semantic_prior",
+    "Task.all_possible_abstractions": "ontology_bound_semantic_prior",
+    "Task.canonical_wake_rules_path": "implementation_only_mechanism",
+    "Task.realized_dream_library_paths": "implementation_only_mechanism",
+    "Task._realized_dream_library_cache": "derived_runtime_state",
+    "Task._compressed_rdr_forest_cache": "derived_runtime_state",
+    "Task.realized_detector_library_paths": "implementation_only_mechanism",
+    "Task._realized_detector_library_cache": "derived_runtime_state",
+    "Task.realized_dream_cost_rank": "ontology_bound_semantic_prior",
+    "Task.min_time_limit": "versioned_execution_policy",
+    "Task.default_soft_time_limit": "versioned_execution_policy",
+    "Task.max_allowed_pixels": "versioned_execution_policy",
+    "Task.max_abstract_nodes": "versioned_execution_policy",
+    "Task.max_queue_length": "versioned_execution_policy",
+    "Task.max_tree_width": "versioned_execution_policy",
+    "Task.max_num_transformations": "versioned_execution_policy",
+    "Task.max_solutions_per_example": "versioned_execution_policy",
+    "Task.max_attempts_per_example": "versioned_execution_policy",
+    "Task.max_branch_length": "versioned_execution_policy",
+    "Task.max_tree_depth": "versioned_execution_policy",
+    "Task.max_mcccg_duplicate_candidates": "versioned_execution_policy",
+    "Task.excessive_abort_threshold": "versioned_execution_policy",
+    "Task.repeated_abort_message_threshold": "versioned_execution_policy",
+    "Task.preprocess_flags": "ontology_bound_semantic_prior",
+    "Task.max_ccg_edge_probe_candidates": "versioned_execution_policy",
+    "Task.max_ccg_edge_probe_combinations": "versioned_execution_policy",
+    "DSLMapper._operation_equivalence_records_cache": "derived_runtime_state",
+    "DSLMapper.simple_update_color_abstraction_order": "ontology_bound_semantic_prior",
+    "DSLMapper.simple_move_node_abstraction_order": "ontology_bound_semantic_prior",
+    "DSLMapper.component_size_color_abstraction_order": "ontology_bound_semantic_prior",
+    "DSLMapper.compact_beam_type_order": "ontology_bound_semantic_prior"
+  },
+  "background_hypotheses": {
+    "modal_color": {"ontology_iri": "arga:hypothesis_modal_color", "parent_ontology_iri": "arga:ModalColorBackground", "selection_policy": "most_frequent_color_per_grid", "literal_color": null, "canvas_kind": "monochrome", "priority": 10, "wake_authorized": true},
+    "literal_black": {"ontology_iri": "arga:hypothesis_literal_black", "parent_ontology_iri": "arga:LiteralBlackBackground", "selection_policy": "literal_color", "literal_color": 0, "canvas_kind": "monochrome", "priority": 20, "wake_authorized": true},
+    "boundary_supported": {"ontology_iri": "arga:hypothesis_boundary_supported", "parent_ontology_iri": "arga:BoundarySupportedBackground", "selection_policy": "boundary_supported_color", "literal_color": null, "canvas_kind": "monochrome", "priority": 30, "wake_authorized": true},
+    "corner_supported": {"ontology_iri": "arga:hypothesis_corner_supported", "parent_ontology_iri": "arga:CornerSupportedBackground", "selection_policy": "corner_supported_color", "literal_color": null, "canvas_kind": "monochrome", "priority": 40, "wake_authorized": true},
+    "no_color_canvas": {"ontology_iri": "arga:hypothesis_no_color_canvas", "parent_ontology_iri": "arga:NoColorBackgroundCanvas", "selection_policy": "no_palette_color", "literal_color": null, "canvas_kind": "structural_no_color", "priority": 50, "wake_authorized": true}
+  },
+  "canvas_support_hypotheses": {
+    "whole_grid_canvas": {"ontology_iri": "arga:hypothesis_whole_grid_canvas", "parent_ontology_iri": "arga:WholeGridCanvasSupport", "support_policy": "whole_grid", "priority": 10, "wake_authorized": true},
+    "bounded_periodic_lattice_canvas": {"ontology_iri": "arga:hypothesis_bounded_periodic_lattice_canvas", "parent_ontology_iri": "arga:BoundedPeriodicLatticeCanvasSupport", "support_policy": "bounded_periodic_lattice", "priority": 20, "wake_authorized": true}
+  },
+  "abstraction_background_hypotheses": {
+    "na": ["no_color_canvas"],
+    "ncccg": ["no_color_canvas"],
+    "ccg": ["no_color_canvas"],
+    "ccgbr": ["literal_black", "corner_supported"],
+    "ccgbr2": ["literal_black", "boundary_supported"],
+    "ccgbcr": ["corner_supported"],
+    "nbccg": ["literal_black"],
+    "nbvcg": ["modal_color"],
+    "nbhcg": ["modal_color"],
+    "mcccg": ["literal_black"],
+    "occg": ["literal_black"],
+    "lrg": ["literal_black"],
+    "nbccg8": ["literal_black"],
+    "ccgbr8": ["literal_black", "corner_supported"],
+    "ccgbr28": ["literal_black", "boundary_supported"],
+    "ccgbcr8": ["corner_supported"],
+    "ncccg8": ["no_color_canvas"],
+    "ccg8": ["no_color_canvas"],
+    "mcccg8": ["literal_black"],
+    "occg8": ["literal_black"]
+  },
+  "background_rdr_rules": [
+    {"rule_id": "rdr:background:default_modal", "ontology_iri": "arga:rdr_default_modal_background", "role": "default", "conclusion_hypothesis_id": "modal_color", "parent_rule_id": null, "exception_predicates": []},
+    {"rule_id": "rdr:background:exception_literal_black", "ontology_iri": "arga:rdr_exception_literal_black_canvas", "role": "exception", "conclusion_hypothesis_id": "literal_black", "parent_rule_id": "rdr:background:default_modal", "exception_predicates": ["arga:predicate_modal_color_is_nonblack", "arga:predicate_literal_black_present", "arga:predicate_downstream_typed_derivation_failed"]},
+    {"rule_id": "rdr:background:exception_no_color", "ontology_iri": "arga:rdr_exception_no_color_canvas", "role": "exception", "conclusion_hypothesis_id": "no_color_canvas", "parent_rule_id": "rdr:background:default_modal", "exception_predicates": ["arga:predicate_no_shared_monochrome_background", "arga:predicate_structural_canvas_evidence", "arga:predicate_downstream_typed_derivation_failed"]}
+  ],
+  "scene_decomposition_rules": {
+    "cross_example_background_canvas_induction": {
+      "rule_id": "rdr_rule:cross_example_background_canvas_induction",
+      "ontology_iri": "arga:rdr_cross_example_background_canvas_induction",
+      "profile_id": "bridge_profile:cross_example_background_canvas_induction",
+      "profile_ontology_iri": "https://arc-arga.example/arga#conceptProfile_cross_example_background_canvas_induction",
+      "connector_chain_id": "connector_chain:rdr:cross_example_background_canvas_induction",
+      "rdr_role": "exception",
+      "parent_rule_id": "rdr_rule:whole_grid_scene_decomposition_default",
+      "feature_ids": ["cross_example_consistency", "modal_background_consensus", "finite_periodic_lattice", "outside_canvas_noise"],
+      "ontology_binding_iris": ["arga:CrossExampleSceneDecomposition", "arga:AbstractScene", "arga:SceneDecompositionFeatureVector", "arga:BoundedPeriodicLatticeBinding", "arga:hypothesis_modal_color", "arga:hypothesis_bounded_periodic_lattice_canvas", "arga:connector_chain_cross_example_scene_decomposition"],
+      "binding_slots": ["background_hypothesis", "canvas_support_hypothesis", "background_color", "row_period", "column_period", "row_slot_count", "column_slot_count", "bound_height", "bound_width"],
+      "wake_authorized": true
+    }
+  },
+  "root_abstraction_contracts": {
+    "image_scene_construction": {
+      "ontology_iri": "arga:root_abstraction_image_scene",
+      "owner_class": "arga:Image",
+      "construction_stage": "Image._bind_raw_pixel_canvas",
+      "connector_chain_id": "connector_chain:root:image_abstract_scene_arcgraph",
+      "input_type": "arga:PixelGridGraph",
+      "output_type": "arga:AbstractScene",
+      "required_scene_binding_fields": ["scene_decomposition_rule_id", "scene_decomposition_rule_ontology_iri", "background_hypothesis_id", "canvas_support_hypothesis_id"],
+      "wake_authorized": true
+    },
+    "arcgraph_scene_construction": {
+      "ontology_iri": "arga:root_abstraction_arcgraph_scene",
+      "owner_class": "arga:ARCGraph",
+      "construction_stage": "ARCGraph.__init__",
+      "connector_chain_id": "connector_chain:root:image_abstract_scene_arcgraph",
+      "input_type": "arga:AbstractScene",
+      "output_type": "arga:ARCGraph",
+      "required_scene_binding_fields": ["scene_decomposition_rule_id", "scene_decomposition_rule_ontology_iri", "background_hypothesis_id", "canvas_support_hypothesis_id"],
+      "wake_authorized": true
+    }
+  },
+  "fixtures": {
+    "fixture:positive_components": {"kind": "positive", "grid": [[0, 2, 0], [0, 2, 3], [0, 0, 3]], "expected_node_counts": {"na": 1, "ncccg": 4, "ccg": 4, "ccgbr": 2, "ccgbr2": 2, "ccgbcr": 1, "nbccg": 2, "nbvcg": 2, "nbhcg": 4, "mcccg": 1, "occg": 1, "lrg": 2}},
+    "fixture:negative_all_black": {"kind": "negative", "grid": [[0, 0], [0, 0]], "expected_node_counts": {"na": 1, "ncccg": 1, "ccg": 1, "ccgbr": 0, "ccgbr2": 0, "ccgbcr": 0, "nbccg": 0, "nbvcg": 0, "nbhcg": 0, "mcccg": 0, "occg": 0, "lrg": 0}},
+    "fixture:boundary_single_pixel": {"kind": "boundary", "grid": [[2]], "expected_node_counts": {"na": 1, "ncccg": 1, "ccg": 1, "ccgbr": 1, "ccgbr2": 1, "ccgbcr": 0, "nbccg": 1, "nbvcg": 0, "nbhcg": 0, "mcccg": 1, "occg": 1, "lrg": 1}},
+    "fixture:counterexample_nonzero_mode": {"kind": "counterexample", "grid": [[2, 2, 2], [2, 0, 2], [3, 3, 2]], "expected_node_counts": {"na": 1, "ncccg": 3, "ccg": 3, "ccgbr": 3, "ccgbr2": 3, "ccgbcr": 1, "nbccg": 2, "nbvcg": 3, "nbhcg": 2, "mcccg": 1, "occg": 1, "lrg": 4}}
+  },
+  "abstractions": {
+    "na": {"ontology_iri": "arga:abstraction_na", "implementation_id": "image.get_no_abstraction_graph.v1", "module": "image", "callable_name": "get_no_abstraction_graph", "implementation_digest": "f5938e0b3b3c18b3ad92a1f35110eaa1f0bde4c5e6363d1e5fc54634e4452139", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "include_all_colors", "background_color": null, "connectivity": "orthogonal_4", "color_partition": "whole_grid_multicolor", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["one_node_covers_entire_grid", "pixel_colors_preserved"], "postconditions": ["lossless_grid_reconstruction"], "ambiguity_policy": "deterministic", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["downscale_grid", "symmetry_grid", "placement_grid", "basic_grid", "neighborhood_grid", "count_grid", "tile_grid", "pyramid_grid", "overlay"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ncccg": {"ontology_iri": "arga:abstraction_ncccg", "implementation_id": "image.get_no_color_connected_components_graph.v1", "module": "image", "callable_name": "get_no_color_connected_components_graph", "implementation_digest": "53e630e6f1b231d98f0fff8c011ba8311d064956f2ac2b19bdb9788a44a0c506", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "structural_no_color_canvas", "background_color": null, "connectivity": "orthogonal_4", "color_partition": "monochrome_scene_components", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "all_pixels_represented", "canvas_has_no_palette_color"], "postconditions": ["lossless_canvas_foreground_overlay_reconstruction"], "ambiguity_policy": "no_monochrome_background_selected", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": [], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccg": {"ontology_iri": "arga:abstraction_ccg", "implementation_id": "image.get_connected_components_graph.v1", "module": "image", "callable_name": "get_connected_components_graph", "implementation_digest": "9d68c8cf29dc6683c032464d9b1054dfc8c06194ba087a052a3f01f38f555da2", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "include_all_colors", "background_color": null, "connectivity": "orthogonal_4", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "all_pixels_represented"], "postconditions": ["lossless_grid_reconstruction"], "ambiguity_policy": "deterministic", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": [], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbr": {"ontology_iri": "arga:abstraction_ccgbr", "implementation_id": "image.get_connected_components_graph_background_removed.v1", "module": "image", "callable_name": "get_connected_components_graph_background_removed", "implementation_digest": "39dd6d4b99c1b6a550b9516b9e40c53feb76777b699ba63517ec88140f7ddefb", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_background_components_touching_corner", "background_color": 0, "connectivity": "orthogonal_4", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "non_background_components_represented"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max", "squeeze"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbr2": {"ontology_iri": "arga:abstraction_ccgbr2", "implementation_id": "image.get_connected_components_graph_background_removed_2.v1", "module": "image", "callable_name": "get_connected_components_graph_background_removed_2", "implementation_digest": "2799185d6fe00d9284638b63c989d109dbbf41aefebedfde6012e0c77d23791a", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_background_components_touching_boundary", "background_color": 0, "connectivity": "orthogonal_4", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "non_background_components_represented"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbcr": {"ontology_iri": "arga:abstraction_ccgbcr", "implementation_id": "image.get_connected_components_graph_corner_edge_removed.v1", "module": "image", "callable_name": "get_connected_components_graph_corner_edge_removed", "implementation_digest": "b5dbb654468ab6eedc94a453c50dbd61063e6fed1ecec6ba279a1978d4d92011", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_any_component_touching_corner", "background_color": null, "connectivity": "orthogonal_4", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "no_emitted_component_touches_corner"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "deterministic", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "nbccg": {"ontology_iri": "arga:abstraction_nbccg", "implementation_id": "image.get_non_black_components_graph.v1", "module": "image", "callable_name": "get_non_black_components_graph", "implementation_digest": "8f354b58341f4fc7b0024d30b82ad0f989d0f5dd1f7dbb8401987bd43eae7192", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_color", "background_color": 0, "connectivity": "orthogonal_4", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "no_emitted_node_is_black", "every_nonzero_component_is_represented"], "postconditions": ["excluded_pixels_restore_as_black"], "ambiguity_policy": "black_is_literal_color_zero", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max", "fill_rectangle", "hollow_rectangle", "add_border", "beam", "connect_aligned_nodes", "rotate_node", "mirror", "flip", "insert", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "nbvcg": {"ontology_iri": "arga:abstraction_nbvcg", "implementation_id": "image.get_non_background_vertical_connected_components_graph.v1", "module": "image", "callable_name": "get_non_background_vertical_connected_components_graph", "implementation_digest": "291e25ca1778d4e7ac95d480abde47d2430885dd87d35a8ee877ad355a2874b6", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_most_frequent_color", "background_color": null, "connectivity": "vertical_2", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_vertical", "components_are_monochrome", "most_frequent_color_excluded"], "postconditions": ["excluded_pixels_restore_as_inferred_background"], "ambiguity_policy": "frequency_ties_follow_image_color_order", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max", "beam", "connect_aligned_nodes"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "nbhcg": {"ontology_iri": "arga:abstraction_nbhcg", "implementation_id": "image.get_non_background_horizontal_connected_components_graph.v1", "module": "image", "callable_name": "get_non_background_horizontal_connected_components_graph", "implementation_digest": "c8236ad253366e5ff0b5aa162a94dcf89063ae90632d6abb1df58636c6bf97b0", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_most_frequent_color", "background_color": null, "connectivity": "horizontal_2", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_horizontal", "components_are_monochrome", "most_frequent_color_excluded"], "postconditions": ["excluded_pixels_restore_as_inferred_background"], "ambiguity_policy": "frequency_ties_follow_image_color_order", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max", "beam", "connect_aligned_nodes"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "mcccg": {"ontology_iri": "arga:abstraction_mcccg", "implementation_id": "image.get_multicolor_connected_components_graph.v1", "module": "image", "callable_name": "get_multicolor_connected_components_graph", "implementation_digest": "9256463b1243289486d60f7b7a7db69d0620006c46b4542137828f80186bc4d3", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_background_color", "background_color": 0, "connectivity": "orthogonal_4", "color_partition": "multicolor", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "component_colors_preserved", "background_excluded"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["move_node", "move_node_max", "overlay", "extract", "downscale_grid", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "occg": {"ontology_iri": "arga:abstraction_occg", "implementation_id": "image.get_occlusion_connected_components_graph.v1", "module": "image", "callable_name": "get_occlusion_connected_components_graph", "implementation_digest": "64698e7760cbddb8f27fd04d4e0fc608706a934e0a152074923302dc97599145", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_background_color", "background_color": 0, "connectivity": "orthogonal_4_plus_declared_occlusion_merge", "color_partition": "multicolor_occlusion", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["visible_colors_preserved", "background_excluded", "merges_carry_occlusion_evidence"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "merge_only_on_typed_touch_or_collinear_occlusion_evidence", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["move_node", "move_node_max", "overlay", "extract", "downscale_grid", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "lrg": {"ontology_iri": "arga:abstraction_lrg", "implementation_id": "image.get_largest_rectangle_graph.v1", "module": "image", "callable_name": "get_largest_rectangle_graph", "implementation_digest": "2412cc238941046848112dcbddbbec5f69cbcddb89a600ea04001479519d7621", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_color", "background_color": 0, "connectivity": "maximal_axis_aligned_rectangle", "color_partition": "monochrome_rectangle", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_monochrome", "no_emitted_node_is_black", "rectangle_partition_is_deterministic"], "postconditions": ["nonblack_pixels_are_partitioned"], "ambiguity_policy": "largest_first_then_coordinate_iteration", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "nbccg8": {"ontology_iri": "arga:abstraction_nbccg8", "implementation_id": "image.get_non_black_components_graph_8.v1", "module": "image", "callable_name": "get_non_black_components_graph_8", "implementation_digest": "f38834122d6228571576fd353dc28ef77bf35c6b3d596989e56e0b442a7b2c9e", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_color", "background_color": 0, "connectivity": "moore_8", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "no_emitted_node_is_black", "every_nonzero_component_is_represented"], "postconditions": ["excluded_pixels_restore_as_black"], "ambiguity_policy": "black_is_literal_color_zero", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max", "fill_rectangle", "hollow_rectangle", "add_border", "beam", "connect_aligned_nodes", "rotate_node", "mirror", "flip", "insert", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbr8": {"ontology_iri": "arga:abstraction_ccgbr8", "implementation_id": "image.get_connected_components_graph_background_removed_8.v1", "module": "image", "callable_name": "get_connected_components_graph_background_removed_8", "implementation_digest": "e6f65c4dd3616dfb15b5fffc1786bedcd769dc4070024cc74153ce0b7a3b517a", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_background_components_touching_corner", "background_color": 0, "connectivity": "moore_8", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "non_background_components_represented"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbr28": {"ontology_iri": "arga:abstraction_ccgbr28", "implementation_id": "image.get_connected_components_graph_background_removed_2_8.v1", "module": "image", "callable_name": "get_connected_components_graph_background_removed_2_8", "implementation_digest": "5fb693221f089a48f9ff4e50ea04f4022e1df23414972907ecbccf06349f7ebb", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_background_components_touching_boundary", "background_color": 0, "connectivity": "moore_8", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "non_background_components_represented"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccgbcr8": {"ontology_iri": "arga:abstraction_ccgbcr8", "implementation_id": "image.get_connected_components_graph_corner_edge_removed_8.v1", "module": "image", "callable_name": "get_connected_components_graph_corner_edge_removed_8", "implementation_digest": "1c63eda2696505b141d21fc33bf9f5a5345653940e5f90c3a7b0604144eecaf0", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_any_component_touching_corner", "background_color": null, "connectivity": "moore_8", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "no_emitted_component_touches_corner"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "deterministic", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["update_color", "move_node", "extend_node", "move_node_max"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ncccg8": {"ontology_iri": "arga:abstraction_ncccg8", "implementation_id": "image.get_no_color_connected_components_graph_8.v1", "module": "image", "callable_name": "get_no_color_connected_components_graph_8", "implementation_digest": "e13f47f8e1e8b9c8b250df929517c3a953fd0a9181909176048d14115caeacf8", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "structural_no_color_canvas", "background_color": null, "connectivity": "moore_8", "color_partition": "monochrome_scene_components", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "all_pixels_represented", "canvas_has_no_palette_color"], "postconditions": ["lossless_canvas_foreground_overlay_reconstruction"], "ambiguity_policy": "no_monochrome_background_selected", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": [], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "ccg8": {"ontology_iri": "arga:abstraction_ccg8", "implementation_id": "image.get_connected_components_graph_8.v1", "module": "image", "callable_name": "get_connected_components_graph_8", "implementation_digest": "f6dbde2655f424aef95b578fe00a3cc8cc99805a55039a0a42e33d82ea2a5e9b", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "include_all_colors", "background_color": null, "connectivity": "moore_8", "color_partition": "monochrome", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "components_are_monochrome", "all_pixels_represented"], "postconditions": ["lossless_grid_reconstruction"], "ambiguity_policy": "deterministic", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": [], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "mcccg8": {"ontology_iri": "arga:abstraction_mcccg8", "implementation_id": "image.get_multicolor_connected_components_graph_8.v1", "module": "image", "callable_name": "get_multicolor_connected_components_graph_8", "implementation_digest": "0167eb6dbe2d8a1164998cde3cccd2a8ebab516928c9c47b3389bb1578d6c076", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_background_color", "background_color": 0, "connectivity": "moore_8", "color_partition": "multicolor", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["components_are_maximal", "component_colors_preserved", "background_excluded"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "literal_background_color", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["move_node", "move_node_max", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true},
+    "occg8": {"ontology_iri": "arga:abstraction_occg8", "implementation_id": "image.get_occlusion_connected_components_graph_8.v1", "module": "image", "callable_name": "get_occlusion_connected_components_graph_8", "implementation_digest": "ed9dbc7a17ba292e5ff1dddcd4521ddb41c07415d277b81ffdf431a8609e2260", "input_type": "arga:PixelGridGraph", "output_type": "arga:ARCGraph", "background_policy": "exclude_literal_background_color", "background_color": 0, "connectivity": "moore_8_plus_declared_occlusion_merge", "color_partition": "multicolor_occlusion", "preconditions": ["rectangular_nonempty_grid", "arc_palette"], "invariants": ["visible_colors_preserved", "background_excluded", "merges_carry_occlusion_evidence"], "postconditions": ["excluded_pixels_restore_as_background"], "ambiguity_policy": "merge_only_on_typed_touch_or_collinear_occlusion_evidence", "failure_conditions": ["invalid_grid_shape", "resource_limit_exceeded"], "supported_filters": ["filter_by_color", "filter_by_size", "filter_by_target", "filter_by_shape", "filter_by_fit", "filter_by_color_component_count", "filter_by_occlusion"], "supported_transformations": ["move_node", "move_node_max", "rotate_node", "flip", "fill_rectangle", "add_border", "remove_node"], "fixtures": {"positive": "fixture:positive_components", "negative": "fixture:negative_all_black", "boundary": "fixture:boundary_single_pixel", "counterexample": "fixture:counterexample_nonzero_mode"}, "wake_authorized": true}
+  }
+}

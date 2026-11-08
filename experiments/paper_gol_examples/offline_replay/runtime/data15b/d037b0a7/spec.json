@@ -1,0 +1,16 @@
+{
+ "in": {
+  "name": "Image S1",
+  "abstraction": "nbccg8",
+  "background": "modal_color",
+  "derive": null,
+  "dropped": []
+ },
+ "out": {
+  "name": "Image S1",
+  "abstraction": "nbccg8",
+  "background": "modal_color",
+  "derive": null,
+  "dropped": []
+ }
+}

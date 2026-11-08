@@ -1,0 +1,7 @@
+{
+  "defs": [],
+  "main": "(seq (set o (first in)) (while (!= o -1) (seq (set steps (size in o)) (while (< 0 steps) (seq (move o 4) (set steps (- steps 1)))) (extend o 4) (set o (next in o)))))",
+  "rule": [
+    "Move each red diagonal northeast by its length, then extend it northeast."
+  ]
+}

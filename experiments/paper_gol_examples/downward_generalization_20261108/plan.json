@@ -1,0 +1,7 @@
+{
+  "defs": [],
+  "main": "(seq (set o (first out)) (while (!= o -1) (seq (split o 0) (set o (next out o)))) (set o (first out)) (while (!= o -1) (seq (while (< (bottom out o) (- (H out) 1)) (extend o 2)) (set o (next out o)))))",
+  "rule": [
+    "Separate the coloured parts and extend each colour downward to the bottom edge."
+  ]
+}

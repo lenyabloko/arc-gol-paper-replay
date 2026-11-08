@@ -1,0 +1,53 @@
+[
+ {
+  "name": "u0001",
+  "kind": "act",
+  "params": [
+   "obj"
+  ],
+  "body": "(while (< (bottom out obj) (- (H out) 1)) (extend obj 2))",
+  "canonical": "b59dcceec4dc1666b1e5f31ba537c71166f66bf34a262197af31e2ac103f0cd5",
+  "task": "d037b0a7",
+  "provenance": {
+   "step": 1,
+   "room": "k37b982d3ea",
+   "plan_sha256": "ad1cb7996191c99b7c9e290eed021ebe8c20400bf63d66da50c7bfc507bf1832",
+   "trace_sha256": "3b137f013d72176f3d2939174384962939dd7a34dee10ee3a0286a80ba019772",
+   "called_in_trace": true
+  },
+  "contract": {
+   "effect": [
+    [
+     "p0 swept 2"
+    ]
+   ],
+   "pre_relations": []
+  }
+ },
+ {
+  "name": "u0002",
+  "kind": "act",
+  "params": [
+   "obj",
+   "steps"
+  ],
+  "body": "(seq (set remaining steps) (while (< 0 remaining) (seq (move obj 4) (set remaining (- remaining 1)))) (extend obj 4))",
+  "canonical": "e565664b65f43bce8dcf7aec6d078c206fefd4615eae5df42ea323b04fd988bc",
+  "task": "50c07299",
+  "provenance": {
+   "step": 2,
+   "room": "k4911520967",
+   "plan_sha256": "f45f8c568d82b4e47b5f6a2f4b5032c0965df44d7e3fb49306918895ffb194d5",
+   "trace_sha256": "3a8d4159910682154e3ad17093ac2b7d6db48b7647e0e46817c6eccca3973779",
+   "called_in_trace": true
+  },
+  "contract": {
+   "effect": [
+    [
+     "p0 reshaped"
+    ]
+   ],
+   "pre_relations": []
+  }
+ }
+]

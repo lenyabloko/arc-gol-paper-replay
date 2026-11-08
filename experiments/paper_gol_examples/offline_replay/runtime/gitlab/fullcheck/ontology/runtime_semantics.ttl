@@ -1,0 +1,268 @@
+@prefix arga: <https://example.org/arga#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/arga/runtime/brain-blood-barrier/v1> a owl:Ontology ;
+  rdfs:label "ARGA Brain-Blood Barrier runtime authority" .
+
+arga:SemanticPrior a owl:Class .
+arga:VersionedExecutionPolicy a owl:Class .
+arga:AbstractionContract a owl:Class .
+arga:RootAbstractionContract a owl:Class ;
+  rdfs:subClassOf arga:AbstractionContract .
+arga:ImplementationBinding a owl:Class .
+
+# Background/canvas interpretation is defeasible Brain knowledge.  Concrete
+# grid colors are bindings of these hypotheses, not the hypotheses themselves.
+arga:SceneDecompositionHypothesis a owl:Class .
+arga:BackgroundHypothesis a owl:Class ;
+  rdfs:subClassOf arga:SceneDecompositionHypothesis .
+# Background color and spatial support are independent defeasible axes.  A
+# scene rule composes one hypothesis from each axis and validates the
+# composition across public training examples.
+arga:CanvasSupportHypothesis a owl:Class ;
+  rdfs:subClassOf arga:SceneDecompositionHypothesis .
+arga:WholeGridCanvasSupport a owl:Class ;
+  rdfs:subClassOf arga:CanvasSupportHypothesis .
+arga:PartialCanvasSupport a owl:Class ;
+  rdfs:subClassOf arga:CanvasSupportHypothesis .
+arga:BoundedPeriodicLatticeCanvasSupport a owl:Class ;
+  rdfs:subClassOf arga:PartialCanvasSupport .
+arga:MonochromeBackgroundHypothesis a owl:Class ;
+  rdfs:subClassOf arga:BackgroundHypothesis .
+arga:LiteralBlackBackground a owl:Class ;
+  rdfs:subClassOf arga:MonochromeBackgroundHypothesis .
+arga:ModalColorBackground a owl:Class ;
+  rdfs:subClassOf arga:MonochromeBackgroundHypothesis .
+arga:BoundarySupportedBackground a owl:Class ;
+  rdfs:subClassOf arga:MonochromeBackgroundHypothesis .
+arga:CornerSupportedBackground a owl:Class ;
+  rdfs:subClassOf arga:BoundarySupportedBackground .
+arga:NoColorBackgroundCanvas a owl:Class ;
+  rdfs:subClassOf arga:BackgroundHypothesis .
+arga:CanvasForegroundDecomposition a owl:Class ;
+  rdfs:subClassOf arga:SceneDecompositionHypothesis .
+arga:AbstractScene a owl:Class .
+arga:CrossExampleSceneDecomposition a owl:Class ;
+  rdfs:subClassOf arga:CanvasForegroundDecomposition .
+arga:SceneDecompositionFeatureVector a owl:Class .
+arga:BoundedPeriodicLatticeBinding a owl:Class .
+arga:AbstractConnectorChain a owl:Class .
+arga:WakeTaskExecution a owl:Class .
+arga:CompactDependencyTrace a owl:Class .
+arga:TaskDependencyCapsule a owl:Class .
+arga:CurrentDependencyClosure a owl:Class .
+arga:DependencyReuseDecision a owl:Class .
+arga:DependencyReuseDecisionSet a owl:Class .
+arga:WakeAuthorityCohort a owl:Class .
+arga:IncrementalWakePlan a owl:Class .
+arga:CanvasLayer a owl:Class .
+arga:SceneForegroundLayer a owl:Class .
+arga:PixelGridGraph a owl:Class .
+arga:ARCGraph a owl:Class .
+arga:Image a owl:Class .
+arga:RegularPanelSequence a owl:Class .
+arga:StableAttributeOrdering a owl:Class .
+arga:ConnectorChain a owl:Class .
+arga:ConnectorEffect a owl:Class .
+arga:StablePanelPermutationOverlay a owl:Class ;
+  rdfs:subClassOf arga:ConnectorEffect .
+arga:ConceptProfile a owl:Class .
+
+arga:hypothesis_modal_color a arga:BackgroundHypothesis, arga:ModalColorBackground .
+arga:hypothesis_literal_black a arga:BackgroundHypothesis, arga:LiteralBlackBackground .
+arga:hypothesis_boundary_supported a arga:BackgroundHypothesis, arga:BoundarySupportedBackground .
+arga:hypothesis_corner_supported a arga:BackgroundHypothesis, arga:CornerSupportedBackground .
+arga:hypothesis_no_color_canvas a arga:BackgroundHypothesis, arga:NoColorBackgroundCanvas .
+arga:hypothesis_whole_grid_canvas a arga:CanvasSupportHypothesis, arga:WholeGridCanvasSupport .
+arga:hypothesis_bounded_periodic_lattice_canvas a arga:CanvasSupportHypothesis, arga:BoundedPeriodicLatticeCanvasSupport .
+arga:connector_chain_cross_example_scene_decomposition a arga:AbstractConnectorChain .
+arga:connector_chain_root_scene_construction a arga:AbstractConnectorChain .
+arga:connector_chain_wake_dependency_reuse a arga:AbstractConnectorChain .
+arga:connector_chain_panel_attribute_sort a arga:AbstractConnectorChain .
+arga:root_abstraction_image_scene a arga:RootAbstractionContract .
+arga:root_abstraction_arcgraph_scene a arga:RootAbstractionContract .
+
+# Provenance is first-class ontology state.  RDR forest edges are provenance
+# back to a root conclusion; dependency edges extend that forest through every
+# abstraction, binding, connector, realization, and validation consequence.
+arga:ProvenanceEntity a owl:Class .
+arga:ProvenanceDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceEntity .
+arga:EvidenceObservation a owl:Class ; rdfs:subClassOf arga:ProvenanceEntity .
+arga:DetectorObservation a owl:Class ; rdfs:subClassOf arga:EvidenceObservation .
+arga:RDRConclusion a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:AbstractionDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:BindingDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:ConnectorDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:ValidationDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:RealizationDerivation a owl:Class ; rdfs:subClassOf arga:ProvenanceDerivation .
+arga:DefeasibleRDRRule a owl:Class .
+arga:AbductivePredicate a owl:Class .
+
+arga:predicate_modal_color_is_nonblack a arga:AbductivePredicate .
+arga:predicate_literal_black_present a arga:AbductivePredicate .
+arga:predicate_downstream_typed_derivation_failed a arga:AbductivePredicate .
+arga:predicate_no_shared_monochrome_background a arga:AbductivePredicate .
+arga:predicate_structural_canvas_evidence a arga:AbductivePredicate .
+
+arga:dependsOn a owl:ObjectProperty ;
+  rdfs:domain arga:ProvenanceDerivation ; rdfs:range arga:ProvenanceEntity .
+arga:derivedFrom a owl:ObjectProperty ;
+  rdfs:domain arga:ProvenanceEntity ; rdfs:range arga:ProvenanceEntity .
+arga:rdrParent a owl:ObjectProperty ;
+  rdfs:domain arga:RDRConclusion ; rdfs:range arga:RDRConclusion .
+arga:invalidatedBy a owl:ObjectProperty ;
+  rdfs:domain arga:ProvenanceDerivation ; rdfs:range arga:ProvenanceEntity .
+arga:revisedBy a owl:ObjectProperty ;
+  rdfs:domain arga:RDRConclusion ; rdfs:range arga:RDRConclusion .
+arga:selectsBackgroundHypothesis a owl:ObjectProperty ;
+  rdfs:domain arga:RDRConclusion ; rdfs:range arga:BackgroundHypothesis .
+arga:selectsCanvasSupportHypothesis a owl:ObjectProperty ;
+  rdfs:range arga:CanvasSupportHypothesis .
+arga:shadowedByConnectorChain a owl:ObjectProperty ;
+  rdfs:range arga:AbstractConnectorChain .
+arga:rdrRuleParent a owl:ObjectProperty ;
+  rdfs:domain arga:DefeasibleRDRRule ; rdfs:range arga:DefeasibleRDRRule .
+arga:composesBackgroundHypothesis a owl:ObjectProperty ;
+  rdfs:domain arga:AbstractScene ; rdfs:range arga:BackgroundHypothesis .
+arga:composesCanvasSupportHypothesis a owl:ObjectProperty ;
+  rdfs:domain arga:AbstractScene ; rdfs:range arga:CanvasSupportHypothesis .
+arga:abstractsPixelGrid a owl:ObjectProperty ;
+  rdfs:domain arga:AbstractScene ; rdfs:range arga:PixelGridGraph .
+arga:constructsAbstractScene a owl:ObjectProperty ;
+  rdfs:range arga:AbstractScene .
+arga:constructsARCGraph a owl:ObjectProperty ;
+  rdfs:domain arga:AbstractScene ; rdfs:range arga:ARCGraph .
+
+arga:rdr_default_modal_background a arga:DefeasibleRDRRule .
+arga:rdr_exception_literal_black_canvas a arga:DefeasibleRDRRule .
+arga:rdr_exception_no_color_canvas a arga:DefeasibleRDRRule .
+arga:rdr_default_whole_grid_scene_decomposition a arga:DefeasibleRDRRule ;
+  arga:selectsCanvasSupportHypothesis arga:hypothesis_whole_grid_canvas .
+arga:rdr_cross_example_background_canvas_induction a arga:DefeasibleRDRRule ;
+  arga:rdrRuleParent arga:rdr_default_whole_grid_scene_decomposition ;
+  arga:selectsBackgroundHypothesis arga:hypothesis_modal_color ;
+  arga:selectsCanvasSupportHypothesis arga:hypothesis_bounded_periodic_lattice_canvas ;
+  arga:shadowedByConnectorChain arga:connector_chain_cross_example_scene_decomposition .
+arga:rdr_panel_attribute_sort_with_background_revision
+  a arga:DefeasibleRDRRule ;
+  arga:rdrRuleParent arga:rdr_exception_literal_black_canvas ;
+  arga:selectsBackgroundHypothesis arga:hypothesis_literal_black ;
+  arga:shadowedByConnectorChain arga:connector_chain_panel_attribute_sort .
+arga:conceptProfile_panel_attribute_sort_with_background_revision
+  a arga:ConceptProfile .
+
+arga:implementationId a owl:DatatypeProperty ;
+  rdfs:domain arga:AbstractionContract ; rdfs:range xsd:string .
+arga:callableName a owl:DatatypeProperty ;
+  rdfs:domain arga:AbstractionContract ; rdfs:range xsd:string .
+arga:implementationDigest a owl:DatatypeProperty ;
+  rdfs:domain arga:AbstractionContract ; rdfs:range xsd:string .
+arga:wakeAuthorized a owl:DatatypeProperty ;
+  rdfs:domain arga:AbstractionContract ; rdfs:range xsd:boolean .
+
+arga:prior_image_abstraction_order a arga:SemanticPrior .
+arga:prior_default_background_color a arga:SemanticPrior .
+arga:prior_multicolor_abstractions a arga:SemanticPrior .
+arga:prior_insertion_transformation_ops a arga:SemanticPrior .
+arga:prior_whole_graph_transformation_ops a arga:SemanticPrior .
+arga:prior_dynamic_transformation_allowlist a arga:SemanticPrior .
+arga:prior_filter_ops a arga:SemanticPrior .
+arga:prior_param_binding_ops a arga:SemanticPrior .
+arga:prior_abstraction_transformation_capabilities a arga:SemanticPrior .
+arga:prior_dynamic_parameters a arga:SemanticPrior .
+arga:prior_direction_from a arga:SemanticPrior .
+arga:prior_direction_to a arga:SemanticPrior .
+arga:prior_point_map a arga:SemanticPrior .
+arga:prior_summary_tile_types a arga:SemanticPrior .
+arga:prior_realized_dream_cost_rank a arga:SemanticPrior .
+arga:prior_preprocess_flags a arga:SemanticPrior .
+arga:prior_simple_update_color_abstraction_order a arga:SemanticPrior .
+arga:prior_simple_move_node_abstraction_order a arga:SemanticPrior .
+arga:prior_component_size_color_abstraction_order a arga:SemanticPrior .
+arga:prior_compact_beam_type_order a arga:SemanticPrior .
+
+arga:policy_image_max_allowed_pixels a arga:VersionedExecutionPolicy .
+arga:policy_image_max_arc_dimension a arga:VersionedExecutionPolicy .
+arga:policy_arc_graph_max_nodes_to_update a arga:VersionedExecutionPolicy .
+arga:policy_task_min_time_limit a arga:VersionedExecutionPolicy .
+arga:policy_task_default_soft_time_limit a arga:VersionedExecutionPolicy .
+arga:policy_task_max_allowed_pixels a arga:VersionedExecutionPolicy .
+arga:policy_task_max_abstract_nodes a arga:VersionedExecutionPolicy .
+arga:policy_task_max_queue_length a arga:VersionedExecutionPolicy .
+arga:policy_task_max_tree_width a arga:VersionedExecutionPolicy .
+arga:policy_task_max_num_transformations a arga:VersionedExecutionPolicy .
+arga:policy_task_max_solutions_per_example a arga:VersionedExecutionPolicy .
+arga:policy_task_max_attempts_per_example a arga:VersionedExecutionPolicy .
+arga:policy_task_max_branch_length a arga:VersionedExecutionPolicy .
+arga:policy_task_max_tree_depth a arga:VersionedExecutionPolicy .
+arga:policy_task_max_mcccg_duplicate_candidates a arga:VersionedExecutionPolicy .
+arga:policy_task_excessive_abort_threshold a arga:VersionedExecutionPolicy .
+arga:policy_task_repeated_abort_message_threshold a arga:VersionedExecutionPolicy .
+arga:policy_task_max_ccg_edge_probe_candidates a arga:VersionedExecutionPolicy .
+arga:policy_task_max_ccg_edge_probe_combinations a arga:VersionedExecutionPolicy .
+arga:policy_task_occg_default_active a arga:VersionedExecutionPolicy .
+arga:policy_task_lrg_default_active a arga:VersionedExecutionPolicy .
+
+arga:abstraction_na a arga:AbstractionContract ;
+  arga:implementationId "image.get_no_abstraction_graph.v1" ;
+  arga:callableName "get_no_abstraction_graph" ; arga:wakeAuthorized true .
+arga:abstraction_ccg a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph.v1" ;
+  arga:callableName "get_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_ncccg a arga:AbstractionContract ;
+  arga:implementationId "image.get_no_color_connected_components_graph.v1" ;
+  arga:callableName "get_no_color_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbr a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_background_removed.v1" ;
+  arga:callableName "get_connected_components_graph_background_removed" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbr2 a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_background_removed_2.v1" ;
+  arga:callableName "get_connected_components_graph_background_removed_2" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbcr a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_corner_edge_removed.v1" ;
+  arga:callableName "get_connected_components_graph_corner_edge_removed" ; arga:wakeAuthorized true .
+arga:abstraction_nbccg a arga:AbstractionContract ;
+  arga:implementationId "image.get_non_black_components_graph.v1" ;
+  arga:callableName "get_non_black_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_nbvcg a arga:AbstractionContract ;
+  arga:implementationId "image.get_non_background_vertical_connected_components_graph.v1" ;
+  arga:callableName "get_non_background_vertical_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_nbhcg a arga:AbstractionContract ;
+  arga:implementationId "image.get_non_background_horizontal_connected_components_graph.v1" ;
+  arga:callableName "get_non_background_horizontal_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_mcccg a arga:AbstractionContract ;
+  arga:implementationId "image.get_multicolor_connected_components_graph.v1" ;
+  arga:callableName "get_multicolor_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_occg a arga:AbstractionContract ;
+  arga:implementationId "image.get_occlusion_connected_components_graph.v1" ;
+  arga:callableName "get_occlusion_connected_components_graph" ; arga:wakeAuthorized true .
+arga:abstraction_lrg a arga:AbstractionContract ;
+  arga:implementationId "image.get_largest_rectangle_graph.v1" ;
+  arga:callableName "get_largest_rectangle_graph" ; arga:wakeAuthorized true .
+arga:abstraction_nbccg8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_non_black_components_graph_8.v1" ;
+  arga:callableName "get_non_black_components_graph_8" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbr8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_background_removed_8.v1" ;
+  arga:callableName "get_connected_components_graph_background_removed_8" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbr28 a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_background_removed_2_8.v1" ;
+  arga:callableName "get_connected_components_graph_background_removed_2_8" ; arga:wakeAuthorized true .
+arga:abstraction_ccgbcr8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_corner_edge_removed_8.v1" ;
+  arga:callableName "get_connected_components_graph_corner_edge_removed_8" ; arga:wakeAuthorized true .
+arga:abstraction_ncccg8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_no_color_connected_components_graph_8.v1" ;
+  arga:callableName "get_no_color_connected_components_graph_8" ; arga:wakeAuthorized true .
+arga:abstraction_ccg8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_connected_components_graph_8.v1" ;
+  arga:callableName "get_connected_components_graph_8" ; arga:wakeAuthorized true .
+arga:abstraction_mcccg8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_multicolor_connected_components_graph_8.v1" ;
+  arga:callableName "get_multicolor_connected_components_graph_8" ; arga:wakeAuthorized true .
+arga:abstraction_occg8 a arga:AbstractionContract ;
+  arga:implementationId "image.get_occlusion_connected_components_graph_8.v1" ;
+  arga:callableName "get_occlusion_connected_components_graph_8" ; arga:wakeAuthorized true .

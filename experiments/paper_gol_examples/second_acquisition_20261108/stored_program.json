@@ -1,0 +1,1 @@
+{"main": "(seq (set obj (first in)) (while (!= obj -1) (seq (u0002 obj (size in obj)) (set obj (next in obj)))))", "defs": [], "explanation": "Each red diagonal advances northeast by its original number of pixels and grows by one pixel at its northeast end. Assumes each object is a contiguous northeast diagonal with enough space for the resulting shape."}
