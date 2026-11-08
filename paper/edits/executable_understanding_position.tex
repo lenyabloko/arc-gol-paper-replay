@@ -278,6 +278,23 @@ This evidence supports the program-construction component of acquisition. It doe
 
 In the separate definition-acquisition condition, the reader generated a parameterized action that extends a selected object downward to the grid boundary. One definition was admitted to the initially empty study store. On task \texttt{d037b0a7}, the rewritten program reproduced both shown demonstrations and the one withheld from the reader in a fresh process, with seven calls to the stored definition and consistent graph--mirror state after all 13 actions. This establishes extraction and persistence of a callable operation on its acquisition support. It uses the same source task as the 32-case family evaluation, so these are complementary checks of one task family, not independent task-level evidence. A second acquisition on task \texttt{50c07299} generated an object-and-distance action for advancing and extending a diagonal. Its two shown demonstrations and withheld demonstration were exact. Adding this action grew the study store from one to two definitions without changing the first; replay preserved all three earlier outputs and consistency across their 13 graph actions. This is admission-support preservation after one addition, not retention on independent evaluation cases. Both unchanged store-backed programs also reproduced their original task test outputs, two of two, after predictions were frozen for separate scoring. These additional inputs belong to the same exposed development tasks. Neither reader saw the other task's acquired definition, so the result does not estimate forward transfer (Appendix~\ref{app:acquired-definition}).
 
+Table~\ref{tab:reader-costs} reports the recorded resources for all eight completed readings, including proposals that did not pass the checker. The three readings in each construction condition cover two tasks and one presentation-order repeat. Reader-process durations include startup and waiting, but exclude perception construction, checking, admission and support replay; they are not end-to-end acquisition costs. Model identity and monetary charges were not recorded. These observations implement part of the accounting in Section~\ref{measure:cost}; they do not establish a speed or cost advantage between conditions.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{p{0.34\linewidth}rrrr}
+\hline
+Reader procedure & Readings & Input tokens & Output tokens & Seconds \\
+\hline
+Grids only, construction & 3 & 48,621 & 1,519 & 55.9 \\
+Graphs with grids, construction & 3 & 50,670 & 689 & 27.9 \\
+Graphs with grids, definition acquisition & 2 & 34,396 & 736 & 33.0 \\
+\hline
+\end{tabular}
+\caption{Recorded totals over every reading in each procedure. Tokens are the CLI-reported input and output fields; cache and reasoning fields are not added to them. Seconds sum the reader-process durations. Each reading reported 8,960 cached input tokens; shared caching and uncontrolled service latency preclude a controlled efficiency comparison. Per-reading records and accounting boundaries appear in Appendix~\ref{app:reader-costs}.}
+\label{tab:reader-costs}
+\end{table}
+
 \subsection{Composition from retained constructions}
 The composition evaluation (Section~\ref{design:composition}) tests the complementary route to an executable program: assembling retained constructions without an LLM call during search. With the target reading excluded from the construction sources, search produced a 23-node GOL program matching all three demonstrations after 10,227 candidate evaluations. The resulting program and recorded search statistics agreed with the historical reference.
 
@@ -520,6 +537,9 @@ The \href{https://github.com/lenyabloko/arc-gol-paper-replay}{public replay repo
 The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/reader_pilot_20261108}{initial reader record} and \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/reader_order2_20261108}{reversed-order record} preserve all readings and checks. The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/wake_reproduction_20261108}{search reproduction records} contain the fixed protocol, source identity, measured outcomes and budget deviation for all three methods.
 
 The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/reader_second_task_20261108}{second reader experiment} preserves both conditions. Its \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/downward_generalization_20261108}{synthetic generalization record} includes all 32 input--output cases, the frozen GOL program, the protocol and replay measurements. This family test is distinct from the supplied-program synthetic execution control below.
+
+\subsection{Reader resource accounting}\label{app:reader-costs}
+The \href{https://github.com/lenyabloko/arc2-object-dsl/tree/recovery/experiments/paper_gol_examples/reader_cost_audit_20261108}{resource-accounting record} binds each of the eight reading outcomes to its launcher timestamps and reported token usage. It preserves the complete condition denominators, including the first pilot's subsequent audit correction. The calculation reads existing logs without generating new proposals. The deployment-resolved model name, billed charges, and total acquisition-pipeline time cannot be recovered from these records; no estimates are substituted for them.
 
 \subsection{Running the generated examples}
 The \href{https://github.com/lenyabloko/arc-gol-paper-replay/tree/cb360762c7ff6494aa76ae5572773f5c6a0b0c4b/experiments/paper_gol_examples/offline_replay}{offline replay package} includes the unchanged interpreter, graph adapter and checker dependencies needed for the cited examples. With the listed Python dependencies installed, the repository command is:
