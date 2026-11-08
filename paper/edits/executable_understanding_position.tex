@@ -166,14 +166,17 @@ The two supplied-program ARC replay tasks used eight-connected monochrome foregr
 \begin{figure}[htbp]
 \centering
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{ccc}
-\fbox{\parbox[c][1.1cm][c]{0.25\linewidth}{\centering Interpret scenes\\\small Two-task reader pilot}} & $\longrightarrow$ &
-\fbox{\parbox[c][1.1cm][c]{0.25\linewidth}{\centering Compose a GOL plan\\\small Historical search replay}} \\
-& & $\downarrow$ \\
-\fbox{\parbox[c][1.1cm][c]{0.25\linewidth}{\centering Persist definitions\\\small Prior support preserved}} & $\longleftarrow$ &
-\fbox{\parbox[c][1.1cm][c]{0.25\linewidth}{\centering Execute and check\\\small Exact outputs checked}} \\
+\begin{tabular}{cc}
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Program construction}\\Two-task reader pilot\\\small ARCGraph/GOL}} &
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Definition persistence}\\Two acquisitions; prior support replayed\\\small ARCGraph/GOL}} \\[8pt]
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Composition search}\\Known historical success reproduced\\\small Earlier GOL interpreter}} &
+\fbox{\parbox[c][1.6cm][c]{0.40\linewidth}{\centering
+\textbf{Execution fidelity}\\Exact outputs and deterministic replay\\\small Each backend separately}} \\
 \end{tabular}
-\caption{Evidence coverage by stage. The reader pilot and supplied-plan checks use ARCGraph; historical composition search uses an earlier interpreter. These separate checks do not form a completed learning cycle. Two acquired definitions have been persisted, with earlier support replayed after the second addition. Independent retention evaluation and cross-task reuse remain future work.}
+\caption{Evidence coverage by stage and backend. These are separate checks, not consecutive stages of one completed learning cycle. The historical search does not consume the two newly acquired definitions. Independent retention evaluation and beneficial cross-task reuse remain future work.}
 \label{fig:evidence-coverage}
 \end{figure}
 
