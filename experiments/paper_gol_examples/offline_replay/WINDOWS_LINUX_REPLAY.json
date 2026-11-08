@@ -1,0 +1,64 @@
+{
+  "source_commit": "599891c2b348eef453abf2e6ceb9cf5b92788b9d",
+  "linux_python": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "linux_platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "groups": 9,
+  "fresh_processes_per_group_per_platform": 2,
+  "rows": [
+    {
+      "group": "diagonal",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "downward",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "stored_definition",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "stored_diagonal",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "preserved_support",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "stored_family32",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "original_test_downward",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "original_test_diagonal",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    },
+    {
+      "group": "family32",
+      "same_summary": true,
+      "same_expanded_program": true,
+      "same_semantic_trace": true
+    }
+  ],
+  "scope": "Same interpreter and adapter across Windows and WSL/Linux, not independently implemented consumer portability or new task evidence"
+}

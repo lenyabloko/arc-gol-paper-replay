@@ -2,7 +2,7 @@
   "experiments/paper_gol_examples/offline_replay/INPUT_MANIFEST.json": "c546f6a8cbc20ec3ac663dc352cd64b642ff89a8d3f6a7cc33cf34473a902a65",
   "experiments/paper_gol_examples/offline_replay/LICENSE": "dd62c25be12fdfb549f59eeef38d826a18e8369be9c71372b7be5e74262b7a8d",
   "experiments/paper_gol_examples/offline_replay/MANIFEST.json": "d403d414046afeb49b57bd10aa0a9a6cc4f31f24bd190f7a07f8614bad3487b7",
-  "experiments/paper_gol_examples/offline_replay/README.txt": "b658d843d262177d704d863ede58007cb76217de5c99b54841517a7b8a2c87ce",
+  "experiments/paper_gol_examples/offline_replay/README.txt": "61485be9f6957ff24cebdbc5168577647aa902ac651ac9b049bd63547d52d885",
   "experiments/paper_gol_examples/offline_replay/requirements.txt": "07ca71d508c449994fa10f543507b6eb99be72da297529e1d9e1f733c11e2657",
   "experiments/paper_gol_examples/offline_replay/run.py": "d99f2b7c8621cdcf71bbe95c798e492575437051a0191fd63f49ab923677d3ad",
   "experiments/paper_gol_examples/offline_replay/VERIFIED_RESULT.json": "521b2d3db186da6aa31931cedeb73fa523f094fe863949372bd705fff9f4807e",
@@ -91,6 +91,7 @@
   "experiments/paper_gol_examples/second_acquisition_20261108/stored_defs.json": "4da934dca7fdc986e6002886cb2ab3c418b0ac3a839c9760c7a46313571999b5",
   "experiments/paper_gol_examples/downward_generalization_20261108/plan.json": "ac581466527d28e4f89611c2be29c232fb9bd5e74e1560079f390c4e6d8be2a1",
   "experiments/paper_gol_examples/downward_generalization_20261108/cases.json": "4b8b044bcc0a2ec53f16dc1c4dc265cfeaed6fdbaffbd4cc7853d422039bee0b",
-  "paper/edits/executable_understanding_position.tex": "01bc8dace37157f1e33270026030ef0af401d20347c1806b3e007ee649939d93",
-  "README.txt": "337ec498be134d81c3e04728eaa7d1cb4e63d53346d35555fc7eac55cf1272a3"
+  "paper/edits/executable_understanding_position.tex": "17b0f543068e1d7b06d80577c1685746a473ad56213a32ddd6007581fa8eed5b",
+  "README.txt": "337ec498be134d81c3e04728eaa7d1cb4e63d53346d35555fc7eac55cf1272a3",
+  "experiments/paper_gol_examples/offline_replay/WINDOWS_LINUX_REPLAY.json": "93e45efee6246b647030142a7199e8e48166f93d776b824badb734a2a5dc55f7"
 }

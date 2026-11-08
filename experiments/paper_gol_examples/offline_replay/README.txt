@@ -19,3 +19,5 @@ Each group executes twice in fresh processes. Checks compare exact outputs, grap
 The original test examples are now published replay fixtures with expected outputs. Replaying them is not a new held-out test or repeated acquisition. These and the repeated family/support checks are overlapping evidence, never independent tasks or new ARC accuracy. No historical large learned store or model credentials are included. The only stored knowledge used here is the explicitly selected one- or two-definition acquired study store. Runtime and checker code remain unchanged. Preserve the MIT notice and bundled source notices.
 
 See VERIFIED_RESULT.json for the complete measured replay receipt. This command checks reproducibility of execution; it does not rerun model readings, historical search, or ARC2 applicability search.
+
+Cross-platform check: all nine groups also passed twice in a fresh WSL/Linux Python3.12.14 environment, from public commit599891c. Expanded programs and semantic traces matched Windows for every group. WINDOWS_LINUX_REPLAY.json records this same-implementation portability check. It is not cross-consumer transfer.
