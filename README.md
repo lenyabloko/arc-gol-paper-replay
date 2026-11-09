@@ -18,7 +18,7 @@ All nine groups passed twice in fresh processes in the recorded Windows run. Rep
 
 ## Paper and provenance
 
-[Read the final manuscript (PDF)](paper/finalARC.pdf) | [LaTeX source](paper/edits/executable_understanding_position.tex). The 18-page PDF matches this source, including the final appendix revisions. [Manuscript checksums](paper/MANUSCRIPT_MANIFEST.json) identify these versions. `PACKAGE_MANIFEST.json` preserves the hashes of the approved original package files; it is not a manifest of subsequent manuscript revisions.
+[Read the current manuscript (PDF)](paper/paperARC.pdf) | [LaTeX source](paper/edits/executable_understanding_position.tex). The current PDF has 17 pages and includes the shortened abstract. The earlier `paper/finalARC.pdf` is retained as a previous version. [Manuscript checksums](paper/MANUSCRIPT_MANIFEST.json) identify these versions. `PACKAGE_MANIFEST.json` preserves the hashes of the approved original package files; it is not a manifest of subsequent manuscript revisions.
 
 ## Licenses
 
