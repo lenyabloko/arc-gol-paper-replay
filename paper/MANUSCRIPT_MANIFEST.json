@@ -1,0 +1,14 @@
+{
+  "description": "Final manuscript PDF and matching LaTeX source; publication update only.",
+  "pdf_pages": 18,
+  "files": {
+    "paper/edits/executable_understanding_position.tex": {
+      "sha256": "bda9fb8e363f4198496ac1368e08bc5bb59ee32a7dcbab76f7b811ffbe20d690",
+      "bytes": 62651
+    },
+    "paper/finalARC.pdf": {
+      "sha256": "a9b2b38b0c6ee64774bf6229dfbb95cc622e798f185513a905a9a85c595a9c16",
+      "bytes": 142516
+    }
+  }
+}

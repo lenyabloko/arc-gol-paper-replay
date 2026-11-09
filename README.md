@@ -2,7 +2,7 @@
 
 Public, limited reproducibility release for **Exploring the Kaleidoscope Hypothesis: Executable Abstraction Discovery in ARC-AGI-2**, by Len Yabloko.
 
-This release contains the manuscript source, the required GOL/ARCGraph runtime and checker, two acquired definitions, and the public cases needed for nine replay groups. It does not include the private project repository or its full experiment history.
+This release contains the final manuscript PDF and source, the required GOL/ARCGraph runtime and checker, two acquired definitions, and the public cases needed for nine replay groups. It does not include the private project repository or its full experiment history.
 
 ## Run the examples
 
@@ -18,7 +18,7 @@ All nine groups passed twice in fresh processes in the recorded Windows run. Rep
 
 ## Paper and provenance
 
-[Manuscript source](paper/edits/executable_understanding_position.tex). The manuscript contains links to additional project records that are not included in this limited release. `PACKAGE_MANIFEST.json` records the hashes of the approved original package files.
+[Read the final manuscript (PDF)](paper/finalARC.pdf) | [LaTeX source](paper/edits/executable_understanding_position.tex). The 18-page PDF matches this source, including the final appendix revisions. [Manuscript checksums](paper/MANUSCRIPT_MANIFEST.json) identify these versions. `PACKAGE_MANIFEST.json` preserves the hashes of the approved original package files; it is not a manifest of subsequent manuscript revisions.
 
 ## Licenses
 
